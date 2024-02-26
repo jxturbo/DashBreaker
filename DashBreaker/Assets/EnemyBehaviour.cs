@@ -23,7 +23,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, player.position) >= distance)
         {
-            Debug.Log("Checking");
+            //Debug.Log("Checking");
 
             transform.position = Vector3.Lerp(transform.position, player.position, moveSpeed * Time.deltaTime);
 
