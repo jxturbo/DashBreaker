@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Pool;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyBehaviour : MonoBehaviour
 {
     public Transform player;
     public int distance;
     public int moveSpeed;
+    public float cooldown;
+
+
     void Start()
     {
 
@@ -23,19 +29,25 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, player.position) >= distance)
         {
-            //Debug.Log("Checking");
-
-            transform.position = Vector3.Lerp(transform.position, player.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, player.position, moveSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, player.position) <= distance)
             {
-                AttackPlayer();
+                StartCoroutine(AttackPlayer());
             }
         }
     }
 
-    void AttackPlayer()
+    IEnumerator AttackPlayer()
     {
         Debug.Log("Attacking");
+        GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = transform.rotation;
+            bullet.SetActive(true);
+        }
+        yield return new WaitForSeconds(cooldown);
     }
 }
