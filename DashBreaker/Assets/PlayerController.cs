@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10f;
     public float damageAmount = 10f;
     public float maxDistance;
+    public float cooldown = 1f;
     public LayerMask enemyMask;
+    public bool cooldownEnabled;
 
     public Camera mainCamera;
 
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void HandlePlayerInput()
     {
         // Check for mouse click
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !cooldownEnabled)
         {
             // Convert the mouse position from screen space to world space (2D)
             Vector3 mousePosition = Input.mousePosition;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator PerformDashAttack(Vector2 targetPosition)
     {
+        cooldownEnabled = true;
         // Calculate the distance between the current position and the target position
         float originalDistance = Vector2.Distance(transform.position, targetPosition);
         // Calculate the duration of the movement based on the original distance
@@ -69,6 +72,8 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector2.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
+        yield return new WaitForSeconds(cooldown);
+        cooldownEnabled = false;
     }
 
 
