@@ -4,11 +4,12 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 10f;
-    public float damageAmount = 10f;
+    public int damageAmount = 10;
     public float maxDistance;
     public float cooldown = 1f;
     public LayerMask enemyMask;
     public bool cooldownEnabled;
+    private Vector3 mousePosition;
 
     public Camera mainCamera;
 
@@ -28,20 +29,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !cooldownEnabled)
         {
             // Convert the mouse position from screen space to world space (2D)
-            Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Input.mousePosition;
             Vector2 clickedPoint = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y));
             // Draw a line from player to the clicked spot
             Debug.DrawLine(transform.position, clickedPoint, Color.red, 2f);
 
             // Move player to the clicked spot
             StartCoroutine(PerformDashAttack(clickedPoint));
+            DamageObjectsInPath(clickedPoint);
 
-            // Perform raycast if needed (optional)
-            RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint(mousePosition), Vector2.zero);
-            if (hit.collider != null)
-            {
-                // Handle hit object
-            }
         }
     }
 
@@ -72,29 +68,25 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector2.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
+
         yield return new WaitForSeconds(cooldown);
         cooldownEnabled = false;
     }
 
+    void DamageObjectsInPath(Vector2 targetPosition)
+    {
+        // Check for objects between player and target position
+        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, maxDistance, enemyMask);
 
-
-
-
-    // void DamageObjectsInPath(Vector3 targetPosition)
-    // {
-    //     // Check for objects between player and target position
-    //     Vector3 direction = (targetPosition - transform.position).normalized;
-    //     float maxDistance = Vector3.Distance(transform.position, targetPosition);
-    //     RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, maxDistance, enemyMask);
-
-    //     // Damage each object in the path
-    //     foreach (RaycastHit hit in hits)
-    //     {
-    //         IDamageable damageable = hit.collider.GetComponent<IDamageable>();
-    //         if (damageable != null)
-    //         {
-    //             damageable.TakeDamage(damageAmount);
-    //         }
-    //     }
-    // }
+        // Damage each object in the path
+        foreach (RaycastHit2D hit in hits)
+        {
+            IDamageable damageable = hit.collider.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damageAmount);
+            }
+        }
+    }
 }

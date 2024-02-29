@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int distance;
     public int moveSpeed;
     public float cooldown;
+    public int damageAmount;
 
 
     void Start()
@@ -33,21 +34,33 @@ public class EnemyBehaviour : MonoBehaviour
 
             if (Vector2.Distance(transform.position, player.position) <= distance)
             {
-                StartCoroutine(AttackPlayer());
+                //StartCoroutine(AttackPlayer());
             }
         }
     }
 
-    IEnumerator AttackPlayer()
+    // IEnumerator AttackPlayer()
+    // {
+    //     Debug.Log("Attacking");
+    //     GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+    //     if (bullet != null)
+    //     {
+    //         bullet.transform.position = transform.position;
+    //         bullet.transform.rotation = transform.rotation;
+    //         bullet.SetActive(true);
+    //     }
+    //     yield return new WaitForSeconds(cooldown);
+    // }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Attacking");
-        GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
-        if (bullet != null)
+        if(other.tag == "Player")
         {
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
-            bullet.SetActive(true);
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damageAmount);
+            }
         }
-        yield return new WaitForSeconds(cooldown);
     }
 }

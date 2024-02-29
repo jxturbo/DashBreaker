@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 903476582}
   - component: {fileID: 903476581}
   - component: {fileID: 903476580}
+  - component: {fileID: 903476583}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -315,7 +316,7 @@ MonoBehaviour:
   cooldown: 0.1
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   cooldownEnabled: 0
   mainCamera: {fileID: 0}
 --- !u!212 &903476578
@@ -464,6 +465,21 @@ MonoBehaviour:
   speed: 3
   playerSprite: {fileID: 903476578}
   playerAnim: {fileID: 0}
+--- !u!114 &903476583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903476576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5414573ec233b8e43b4ad2544a2fc630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 0
+  isEnemy: 0
 --- !u!1 &1060227386
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +595,8 @@ GameObject:
   - component: {fileID: 1179047437}
   - component: {fileID: 1179047439}
   - component: {fileID: 1179047440}
-  m_Layer: 0
+  - component: {fileID: 1179047441}
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -669,6 +686,7 @@ MonoBehaviour:
   distance: 3
   moveSpeed: 1
   cooldown: 5
+  damageAmount: 1
 --- !u!58 &1179047440
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -703,7 +721,22 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.6
+--- !u!114 &1179047441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179047436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5414573ec233b8e43b4ad2544a2fc630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 0
+  isEnemy: 1
 --- !u!1 &1520681447
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +749,8 @@ GameObject:
   - component: {fileID: 1520681450}
   - component: {fileID: 1520681449}
   - component: {fileID: 1520681448}
-  m_Layer: 0
+  - component: {fileID: 1520681452}
+  m_Layer: 3
   m_Name: Enemy (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -757,7 +791,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.6
 --- !u!114 &1520681449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +808,7 @@ MonoBehaviour:
   distance: 3
   moveSpeed: 1
   cooldown: 5
+  damageAmount: 1
 --- !u!212 &1520681450
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -841,6 +876,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1520681452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520681447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5414573ec233b8e43b4ad2544a2fc630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 0
+  isEnemy: 1
 --- !u!1 &1765716513
 GameObject:
   m_ObjectHideFlags: 0
