@@ -34,27 +34,26 @@ public class EnemyBehaviour : MonoBehaviour
 
             if (Vector2.Distance(transform.position, player.position) <= distance)
             {
-                //StartCoroutine(AttackPlayer());
+                StartCoroutine(AttackPlayer());
             }
         }
     }
 
-    // IEnumerator AttackPlayer()
-    // {
-    //     Debug.Log("Attacking");
-    //     GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
-    //     if (bullet != null)
-    //     {
-    //         bullet.transform.position = transform.position;
-    //         bullet.transform.rotation = transform.rotation;
-    //         bullet.SetActive(true);
-    //     }
-    //     yield return new WaitForSeconds(cooldown);
-    // }
-
+     IEnumerator AttackPlayer()
+     {
+         Debug.Log("Attacking");
+         GameObject bullet = ObjectPool.objPool.GetPooledObject();
+         if (bullet != null)
+         {
+             bullet.transform.position = transform.position;
+             bullet.transform.rotation = transform.rotation;
+             bullet.SetActive(true);
+         }
+         yield return new WaitForSeconds(cooldown);
+     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)

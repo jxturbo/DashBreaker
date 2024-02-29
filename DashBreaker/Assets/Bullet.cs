@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     public int moveSpeed;
     public int distance;
     public int expiry;
+    public int damageAmount;
     public bool check = false;
 
     // Start is called before the first frame update
@@ -32,12 +33,6 @@ public class Bullet : MonoBehaviour
     void FireAtPlayer()
     {
         transform.position = Vector2.Lerp(transform.position, hold, moveSpeed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, player.position) <= distance)
-        {
-            gameObject.SetActive(false);
-            check = false;
-            //TakeDamage()
-        }
         StartCoroutine(MissedBullet());
     }
 
@@ -46,5 +41,21 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(expiry);
         gameObject.SetActive(false);
         check = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                Debug.Log("Dmg");
+                damageable.TakeDamage(damageAmount);
+                gameObject.SetActive(false);
+                check = false;
+                return;
+            }
+        }
     }
 }
