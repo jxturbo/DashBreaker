@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyMask;
     public bool cooldownEnabled;
     private Vector3 mousePosition;
+    public bool isInvincible;
 
     public Camera mainCamera;
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator PerformDashAttack(Vector2 targetPosition)
     {
         cooldownEnabled = true;
+        isInvincible = true;
         // Calculate the distance between the current position and the target position
         float originalDistance = Vector2.Distance(transform.position, targetPosition);
         // Calculate the duration of the movement based on the original distance
@@ -68,9 +70,10 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector2.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
-
+        isInvincible = false;
         yield return new WaitForSeconds(cooldown);
         cooldownEnabled = false;
+        
     }
 
     void DamageObjectsInPath(Vector2 targetPosition)
