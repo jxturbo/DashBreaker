@@ -35,14 +35,13 @@ public class EnemyBehaviour : MonoBehaviour
 
             if (Vector2.Distance(transform.position, player.transform.position) <= distance)
             {
-                StartCoroutine(AttackPlayer());
+                StartCoroutine(ShootAttack());
             }
         }
     }
 
-     IEnumerator AttackPlayer()
+     IEnumerator ShootAttack()
      {
-         Debug.Log("Attacking");
          GameObject bullet = ObjectPool.objPool.GetPooledObject();
          if (bullet != null)
          {
@@ -52,6 +51,12 @@ public class EnemyBehaviour : MonoBehaviour
          }
          yield return new WaitForSeconds(cooldown);
      }
+    IEnumerator RushAttack()
+    {
+        moveSpeed++;
+        transform.position = Vector2.Lerp(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        yield return new WaitForSeconds(cooldown);
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
