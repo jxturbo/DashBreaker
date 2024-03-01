@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public int distance;
     public int moveSpeed;
     public float cooldown;
@@ -17,7 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -28,11 +28,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     void HeadToPlayer()
     {
-        if (Vector2.Distance(transform.position, player.position) >= distance)
+        if (Vector2.Distance(transform.position, player.transform.position) >= distance)
         {
-            transform.position = Vector2.Lerp(transform.position, player.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, player.position) <= distance)
+            if (Vector2.Distance(transform.position, player.transform.position) <= distance)
             {
                 StartCoroutine(AttackPlayer());
             }
