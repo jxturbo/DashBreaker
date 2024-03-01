@@ -13,6 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int moveSpeed;
     public float cooldown;
     public int damageAmount;
+    
 
 
     void Start()
