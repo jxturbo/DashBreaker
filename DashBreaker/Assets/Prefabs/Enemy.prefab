@@ -154,3 +154,4 @@ MonoBehaviour:
   maxHealth: 1
   currentHealth: 0
   isEnemy: 1
+  ExperiencePoints: 50

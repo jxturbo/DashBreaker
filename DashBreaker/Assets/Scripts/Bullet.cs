@@ -48,10 +48,13 @@ public class Bullet : MonoBehaviour
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
             PlayerController player = other.GetComponent<PlayerController>();
-            if (damageable != null && !player.isInvincible)
+            if (damageable != null)
             {
                 Debug.Log("Dmg");
-                damageable.TakeDamage(damageAmount);
+                if(!player.isInvincible)
+                {
+                    damageable.TakeDamage(damageAmount);
+                }
                 gameObject.SetActive(false);
                 check = false;
                 return;
