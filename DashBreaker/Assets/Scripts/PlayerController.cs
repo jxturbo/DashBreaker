@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("DashAttack ")]
     public float moveSpeed = 10f;
     public int damageAmount = 10;
     public float maxDistance;
@@ -13,6 +14,12 @@ public class PlayerController : MonoBehaviour
     public bool isInvincible;
 
     public Camera mainCamera;
+
+    [Header("Exp ")]
+    public float currentExp = 0f;
+    public float maxExp = 100f;
+    public int level = 1;
+    public float MaxExpIncreaseAmount = 50f;
 
     void Start()
     {
@@ -91,5 +98,25 @@ public class PlayerController : MonoBehaviour
                 damageable.TakeDamage(damageAmount);
             }
         }
+    }
+
+    public void GainExp(float amount)
+    {
+        currentExp += amount;
+        // Ensure currentExp does not exceed maxExp
+        currentExp = Mathf.Min(currentExp, maxExp);
+        UpdateExpBar();
+    }
+
+    void UpdateExpBar()
+    {
+        if (currentExp >= maxExp)
+        {
+            level++;
+            currentExp = 0f;
+            maxExp += MaxExpIncreaseAmount;
+        }
+
+        // Update UI or any other representation of the experience bar here
     }
 }

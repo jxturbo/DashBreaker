@@ -5,8 +5,7 @@ public class HealthBar : MonoBehaviour
 {
     public Image healthFillImage; // Reference to the Image component representing the health fill
     private Health healthScript; // Reference to the Health script
-    private int maxHealth; // Maximum health value
-    private int currentHealth; // Current health value
+    private float healthPercentage;
 
     void Start()
     {
@@ -26,7 +25,7 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         // Calculate the health percentage
-        float healthPercentage = (float)healthScript.currentHealth / healthScript.maxHealth;
+        healthPercentage = (float)healthScript.currentHealth / healthScript.maxHealth;
 
         // Set the fill amount of the health fill image based on the health percentage
         healthFillImage.fillAmount = healthPercentage;

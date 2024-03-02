@@ -56,7 +56,8 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.tag == "Player")
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
-            if (damageable != null)
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (damageable != null && !player.isInvincible)
             {
                 damageable.TakeDamage(damageAmount);
             }
