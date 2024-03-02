@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
     public Transform player;
     public Vector2 hold;
     public int moveSpeed;
-    public int distance;
     public int expiry;
     public int damageAmount;
     public bool check = false;
