@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 190645937}
   - component: {fileID: 190645939}
   m_Layer: 5
-  m_Name: Powerup Select
+  m_Name: Attribute Select Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,6 +269,10 @@ MonoBehaviour:
     maxDistanceMultiplier: 0
     cooldownMultiplier: 0
     expMultiplier: 0
+  modifierCards:
+  - {fileID: 437024545}
+  - {fileID: 364844709}
+  - {fileID: 1208771694}
   player: {fileID: 903476577}
   currentExpMultiplier: 0
 --- !u!1 &316696594
@@ -495,7 +499,7 @@ GameObject:
   - component: {fileID: 364844712}
   - component: {fileID: 364844711}
   m_Layer: 5
-  m_Name: Modifier2
+  m_Name: Card2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +605,7 @@ GameObject:
   - component: {fileID: 437024548}
   - component: {fileID: 437024547}
   m_Layer: 5
-  m_Name: Modifier1
+  m_Name: Card1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1142,7 +1146,7 @@ GameObject:
   - component: {fileID: 1208771697}
   - component: {fileID: 1208771696}
   m_Layer: 5
-  m_Name: Modifier3
+  m_Name: Card3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelUpAugment : MonoBehaviour
 {
     public Modifiers[] modifiers;
+    public GameObject[] modifierCards;
     public PlayerController player;
     public float currentExpMultiplier;
 
