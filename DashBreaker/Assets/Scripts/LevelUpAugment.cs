@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelUpAugment : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class LevelUpAugment : MonoBehaviour
     {
         public string attributeName;
         public string description;
+        public Image contextImage;
         public float moveSpeedMultiplier = 1.1f;
         public int damageAmountIncrease = 1;
         public float maxDistanceMultiplier = 1.5f;
