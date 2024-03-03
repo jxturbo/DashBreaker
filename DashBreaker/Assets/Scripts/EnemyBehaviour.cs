@@ -13,6 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int moveSpeed;
     public float cooldown;
     public int damageAmount;
+    public int enemyType;
     
 
 
@@ -35,7 +36,15 @@ public class EnemyBehaviour : MonoBehaviour
 
             if (Vector2.Distance(transform.position, player.transform.position) <= distance)
             {
-                StartCoroutine(ShootAttack());
+                switch (enemyType)
+                {
+                    case 0:
+                        StartCoroutine(ShootAttack());
+                        break;
+                    case 1:
+                        StartCoroutine(RushAttack());
+                        break;
+                }
             }
         }
     }
@@ -53,9 +62,10 @@ public class EnemyBehaviour : MonoBehaviour
      }
     IEnumerator RushAttack()
     {
-        moveSpeed++;
-        transform.position = Vector2.Lerp(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        moveSpeed += 20;
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         yield return new WaitForSeconds(cooldown);
+        moveSpeed -= 20;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
