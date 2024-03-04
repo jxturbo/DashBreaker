@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelUpAugment : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class LevelUpAugment : MonoBehaviour
         public float maxDistanceMultiplier = 1.5f;
         public float cooldownMultiplier = 1f;
         public float expMultiplier;
+        public bool isAbility;
     }
 
     void ApplyModifiers(Modifiers modifiers)
@@ -39,17 +41,73 @@ public class LevelUpAugment : MonoBehaviour
 
         if (modifiers.expMultiplier != 0f)
             currentExpMultiplier += modifiers.expMultiplier;
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
+
     }
 
-    public void SelectModifier(int index)
+    public void SelectCard(int cardId)
     {
-        if (index >= 0 && index < modifiers.Length)
+        // Find the TextMeshProUGUI component for the attribute name in the clicked card
+        TextMeshProUGUI attributeNameText = modifierCards[cardId].transform.Find("Title").GetComponent<TextMeshProUGUI>();
+        
+        // Get the attribute name from the text component
+        string attributeName = attributeNameText.text;
+
+        // Iterate through modifiers to find the one with matching attributeName
+        foreach (Modifiers modifier in modifiers)
         {
-            ApplyModifiers(modifiers[index]);
-        }
-        else
-        {
-            Debug.LogError("Invalid index provided.");
+            if (modifier.attributeName == attributeName)
+            {
+                if(!modifier.isAbility)
+                {
+                    ApplyModifiers(modifier);
+                    // Remove the modifier from the array
+                    RemoveModifier(modifier);
+                }
+                break;
+            }
         }
     }
+
+    void RemoveModifier(Modifiers modifierToRemove)
+    {
+        List<Modifiers> tempList = new List<Modifiers>(modifiers);
+        tempList.Remove(modifierToRemove);
+        modifiers = tempList.ToArray();
+    }
+
+
+    public void ShowCards()
+    {
+        // Create a list to keep track of selected modifiers
+        List<int> selectedIndexes = new List<int>();
+
+        // Iterate through each modifier card
+        for (int i = 0; i < modifierCards.Length; i++)
+        {
+            // Choose a random modifier that hasn't been selected yet
+            int randomIndex;
+            do
+            {
+                randomIndex = Random.Range(0, modifiers.Length);
+            } while (selectedIndexes.Contains(randomIndex));
+
+            // Add the selected index to the list
+            selectedIndexes.Add(randomIndex);
+
+            // Set the attribute name text
+            TextMeshProUGUI attributeNameText = modifierCards[i].transform.Find("Title").GetComponent<TextMeshProUGUI>();
+            attributeNameText.text = modifiers[randomIndex].attributeName;
+
+            // Set the description text
+            TextMeshProUGUI descriptionText = modifierCards[i].transform.Find("Description").GetComponent<TextMeshProUGUI>();
+            descriptionText.text = modifiers[randomIndex].description;
+
+            // Set the context image sprite
+            Image contextImage = modifierCards[i].transform.Find("ContextImage").GetComponent<Image>();
+            //contextImage.sprite = modifiers[randomIndex].contextImage.sprite;
+        }
+    }
+
 }

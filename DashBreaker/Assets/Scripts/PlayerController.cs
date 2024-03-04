@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float maxExp = 100f;
     public int level = 1;
     public float MaxExpIncreaseAmount = 50f;
+    public GameObject AttributeSelectScreen;
 
     void Start()
     {
@@ -115,8 +116,15 @@ public class PlayerController : MonoBehaviour
             level++;
             currentExp = 0f;
             maxExp += MaxExpIncreaseAmount;
+            AttributeSelectScreen.SetActive(true);
+            LevelUpAugment levelup = AttributeSelectScreen.GetComponent<LevelUpAugment>();
+            Invoke("PauseTime", 0.3f);
+            levelup.ShowCards();
         }
 
-        // Update UI or any other representation of the experience bar here
+    }
+    void PauseTime()
+    {
+        Time.timeScale = 0f;
     }
 }
