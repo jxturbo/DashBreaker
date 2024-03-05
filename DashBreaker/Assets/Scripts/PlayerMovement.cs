@@ -6,8 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb; // Use Rigidbody2D for 2D physics
     public float speed = 3f;
-    private float currentSpeed = 3f;
-    private bool isRunning;
+    public float currentSpeed = 3f;
     private bool isMoving;
 
     public SpriteRenderer playerSprite;
@@ -54,18 +53,6 @@ public class PlayerMovement : MonoBehaviour
             //playerAnim.SetBool("Walking", false);
             isMoving = false;
             rb.velocity = Vector2.zero;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            //playerAnim.SetBool("Running", true);
-            isRunning = true;
-            currentSpeed = speed * 2f;
-        }
-        else if(Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            //playerAnim.SetBool("Running", false);
-            isRunning = false;
-            currentSpeed = speed;
         }
     }
 }

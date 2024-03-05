@@ -9,6 +9,7 @@ public class LevelUpAugment : MonoBehaviour
     public Modifiers[] modifiers;
     public GameObject[] modifierCards;
     public PlayerController player;
+    public PlayerMovement playerMove;
     public float currentExpMultiplier;
 
     [System.Serializable]
@@ -18,32 +19,58 @@ public class LevelUpAugment : MonoBehaviour
         public string description;
         public Image contextImage;
         public float moveSpeedMultiplier = 1.1f;
-        public int damageAmountIncrease = 1;
+        public float damageAmountIncrease = 1;
         public float maxDistanceMultiplier = 1.5f;
         public float cooldownMultiplier = 1f;
         public float expMultiplier;
         public bool isAbility;
+        public int AbilityId;
     }
 
     void ApplyModifiers(Modifiers modifiers)
     {
         if (modifiers.moveSpeedMultiplier != 0f)
-            player.moveSpeed *= modifiers.moveSpeedMultiplier;
+            player.moveSpeed += modifiers.moveSpeedMultiplier * player.moveSpeed;
+            playerMove.currentSpeed += modifiers.moveSpeedMultiplier * playerMove.currentSpeed;
 
         if (modifiers.damageAmountIncrease != 0)
-            player.damageAmount += modifiers.damageAmountIncrease;
+            player.damageAmount += modifiers.damageAmountIncrease * player.damageAmount;
 
         if (modifiers.maxDistanceMultiplier != 0f)
-            player.maxDistance *= modifiers.maxDistanceMultiplier;
+            player.maxDistance += modifiers.maxDistanceMultiplier * player.maxDistance ;
 
         if (modifiers.cooldownMultiplier != 0f)
-            player.cooldown *= modifiers.cooldownMultiplier;
+            player.cooldown += modifiers.cooldownMultiplier * player.cooldown;
 
         if (modifiers.expMultiplier != 0f)
-            currentExpMultiplier += modifiers.expMultiplier;
+            currentExpMultiplier += modifiers.expMultiplier * currentExpMultiplier;
         gameObject.SetActive(false);
         Time.timeScale = 1f;
 
+    }
+
+    void ApplyPowerup(Modifiers modifier)
+    {
+        switch(modifier.AbilityId)
+        {
+            case 1:
+                player.BurstCrashActive = true;
+                break;
+            case 2:
+                // Apply powerup for ID 2
+                break;
+            case 3:
+                // Apply powerup for ID 3
+                break;
+            case 4:
+                // Apply powerup for ID 4
+                break;
+            default:
+                // Handle cases where ID is not in range 1 to 4
+                break;
+        }
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void SelectCard(int cardId)
@@ -63,7 +90,11 @@ public class LevelUpAugment : MonoBehaviour
                 {
                     ApplyModifiers(modifier);
                     // Remove the modifier from the array
-                    RemoveModifier(modifier);
+                    //RemoveModifier(modifier);
+                }
+                else
+                {
+                    ApplyPowerup(modifier);
                 }
                 break;
             }

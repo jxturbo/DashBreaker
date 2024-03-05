@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("DashAttack ")]
+    [Header("DashAttack stats ")]
     public float moveSpeed = 10f;
-    public int damageAmount = 10;
+    public float damageAmount = 10;
     public float maxDistance;
     public float cooldown = 1f;
     public LayerMask enemyMask;
@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     public int level = 1;
     public float MaxExpIncreaseAmount = 50f;
     public GameObject AttributeSelectScreen;
+
+    [Header("Powerups ")]
+    public bool BurstCrashActive;
+    public GameObject BurstHolder;
 
     void Start()
     {
@@ -78,6 +82,12 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector2.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
+        //performs burst crash at end of attack
+        if(BurstCrashActive)
+        {
+            BurstHolder.SetActive(true);
+            BurstHolder.GetComponent<BurstCrash>().ActivateBurstCrash();
+        }
         isInvincible = false;
         yield return new WaitForSeconds(cooldown);
         cooldownEnabled = false;
@@ -116,6 +126,8 @@ public class PlayerController : MonoBehaviour
             level++;
             currentExp = 0f;
             maxExp += MaxExpIncreaseAmount;
+            //more or less creates a upwards curve to make things more difficult
+            MaxExpIncreaseAmount += MaxExpIncreaseAmount;
             AttributeSelectScreen.SetActive(true);
             LevelUpAugment levelup = AttributeSelectScreen.GetComponent<LevelUpAugment>();
             Invoke("PauseTime", 0.3f);

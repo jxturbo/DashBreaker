@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
 {
-    public int maxHealth = 1;
-    public int currentHealth;
+    public float maxHealth = 1;
+    public float currentHealth;
     public bool isEnemy;
     private GameObject player;
     public float ExperiencePoints;
@@ -25,7 +25,7 @@ public class Health : MonoBehaviour, IDamageable
         
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         // Reduce health by the damage amount
         currentHealth -= damage;
