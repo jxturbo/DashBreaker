@@ -3,17 +3,26 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Base DashAttack stats ")]
+    public float baseMoveSpeed = 10f;
+    public float basedamageAmount = 10;
+    public float baseMaxDistance;
+    public float baseCooldown = 1f;
+
     [Header("DashAttack stats ")]
     public float moveSpeed = 10f;
     public float damageAmount = 10;
     public float maxDistance;
     public float cooldown = 1f;
+
     public LayerMask enemyMask;
     public bool cooldownEnabled;
     private Vector3 mousePosition;
     public bool isInvincible;
 
-    public Camera mainCamera;
+    [Header("Misc ")]
+    public Health playerHp;
+    private Camera mainCamera;
 
     [Header("Exp ")]
     public float currentExp = 0f;
@@ -25,9 +34,17 @@ public class PlayerController : MonoBehaviour
     [Header("Powerups ")]
     public bool BurstCrashActive;
     public GameObject BurstHolder;
+    public bool PerfectionistActive;
+    public float perfectionistStacks;
+    public float currentBonusModifier = 0.1f;
+    public bool VampirismActive;
 
     void Start()
     {
+        moveSpeed = baseMoveSpeed;
+        damageAmount = basedamageAmount;
+        maxDistance = baseMaxDistance;
+        cooldown = baseCooldown;
         mainCamera = Camera.main;
     }
 
@@ -107,7 +124,30 @@ public class PlayerController : MonoBehaviour
             if (damageable != null)
             {
                 damageable.TakeDamage(damageAmount);
+                // 30% chance to heal the player for 10% of max HP
+                if (Random.value < 0.3f && playerHp.currentHealth <= playerHp.maxHealth && VampirismActive) // Random.value returns a float between 0.0 and 1.0
+                {
+                    playerHp.currentHealth += playerHp.maxHealth * 0.1f;
+                    if(playerHp.currentHealth > playerHp.maxHealth)
+                    {
+                        playerHp.currentHealth = playerHp.maxHealth;
+                    }
+                }
             }
+        }
+        if(hits.Length > 0 && PerfectionistActive && perfectionistStacks <= 10f)
+        {
+            perfectionistStacks += 1f;
+            damageAmount += currentBonusModifier * basedamageAmount;
+            cooldown -= currentBonusModifier * baseCooldown;
+            maxDistance += currentBonusModifier * baseMaxDistance;
+        }
+        else if(hits.Length == 0 && PerfectionistActive)
+        {
+            damageAmount -= currentBonusModifier * basedamageAmount * perfectionistStacks;
+            cooldown += currentBonusModifier * baseCooldown * perfectionistStacks;
+            maxDistance -= currentBonusModifier * baseMaxDistance * perfectionistStacks;
+            perfectionistStacks = 0f;
         }
     }
 

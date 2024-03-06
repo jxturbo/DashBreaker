@@ -454,6 +454,27 @@ MonoBehaviour:
     expMultiplier: 0
     isAbility: 1
     AbilityId: 1
+  - attributeName: Perfectionist
+    description: Your dmg, cooldown  and max dash distance is reduced by 50%, but
+      every hit gives u a 10% increase. Reset upon missing or getting hit
+    contextImage: {fileID: 0}
+    moveSpeedMultiplier: 0
+    damageAmountIncrease: -0.5
+    maxDistanceMultiplier: -0.5
+    cooldownMultiplier: 0.5
+    expMultiplier: 0
+    isAbility: 1
+    AbilityId: 2
+  - attributeName: Vampirism
+    description: 30% chance to heal for 10% of your hp on hit
+    contextImage: {fileID: 0}
+    moveSpeedMultiplier: 0
+    damageAmountIncrease: 0
+    maxDistanceMultiplier: 0
+    cooldownMultiplier: 0
+    expMultiplier: 0
+    isAbility: 1
+    AbilityId: 3
   modifierCards:
   - {fileID: 437024545}
   - {fileID: 364844709}
@@ -1516,6 +1537,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a4ec980be14ad4d8e6d5f523ccc6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseMoveSpeed: 100
+  basedamageAmount: 5
+  baseMaxDistance: 10
+  baseCooldown: 1
   moveSpeed: 100
   damageAmount: 5
   maxDistance: 7
@@ -1525,7 +1550,7 @@ MonoBehaviour:
     m_Bits: 8
   cooldownEnabled: 0
   isInvincible: 0
-  mainCamera: {fileID: 0}
+  playerHp: {fileID: 903476583}
   currentExp: 0
   maxExp: 100
   level: 1
@@ -1533,6 +1558,10 @@ MonoBehaviour:
   AttributeSelectScreen: {fileID: 190645935}
   BurstCrashActive: 0
   BurstHolder: {fileID: 386713160}
+  PerfectionistActive: 0
+  perfectionistStacks: 0
+  currentBonusModifier: 0.1
+  VampirismActive: 0
 --- !u!212 &903476578
 SpriteRenderer:
   m_ObjectHideFlags: 0

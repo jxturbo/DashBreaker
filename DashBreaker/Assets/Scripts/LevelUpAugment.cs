@@ -30,17 +30,17 @@ public class LevelUpAugment : MonoBehaviour
     void ApplyModifiers(Modifiers modifiers)
     {
         if (modifiers.moveSpeedMultiplier != 0f)
-            player.moveSpeed += modifiers.moveSpeedMultiplier * player.moveSpeed;
+            player.moveSpeed += modifiers.moveSpeedMultiplier * player.baseMoveSpeed;
             playerMove.currentSpeed += modifiers.moveSpeedMultiplier * playerMove.currentSpeed;
 
         if (modifiers.damageAmountIncrease != 0)
-            player.damageAmount += modifiers.damageAmountIncrease * player.damageAmount;
+            player.damageAmount += modifiers.damageAmountIncrease * player.basedamageAmount;
 
         if (modifiers.maxDistanceMultiplier != 0f)
-            player.maxDistance += modifiers.maxDistanceMultiplier * player.maxDistance ;
+            player.maxDistance += modifiers.maxDistanceMultiplier * player.baseMaxDistance ;
 
         if (modifiers.cooldownMultiplier != 0f)
-            player.cooldown += modifiers.cooldownMultiplier * player.cooldown;
+            player.cooldown += modifiers.cooldownMultiplier * player.baseCooldown;
 
         if (modifiers.expMultiplier != 0f)
             currentExpMultiplier += modifiers.expMultiplier * currentExpMultiplier;
@@ -57,10 +57,11 @@ public class LevelUpAugment : MonoBehaviour
                 player.BurstCrashActive = true;
                 break;
             case 2:
-                // Apply powerup for ID 2
+                player.PerfectionistActive = true;
+                ApplyModifiers(modifier);
                 break;
             case 3:
-                // Apply powerup for ID 3
+                player.VampirismActive = true;
                 break;
             case 4:
                 // Apply powerup for ID 4
