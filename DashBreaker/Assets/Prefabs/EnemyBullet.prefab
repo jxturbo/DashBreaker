@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  rb: {fileID: 0}
   hold: {x: 0, y: 0}
   moveSpeed: 2
-  distance: 1
   expiry: 3
   damageAmount: 1
   check: 0
