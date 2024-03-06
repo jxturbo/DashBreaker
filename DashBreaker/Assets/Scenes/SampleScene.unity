@@ -456,7 +456,7 @@ MonoBehaviour:
     AbilityId: 1
   - attributeName: Perfectionist
     description: Your dmg, cooldown  and max dash distance is reduced by 50%, but
-      every hit gives u a 10% increase. Reset upon missing or getting hit
+      every hit gives u a 10% increase. Reset upon missing.
     contextImage: {fileID: 0}
     moveSpeedMultiplier: 0
     damageAmountIncrease: -0.5
