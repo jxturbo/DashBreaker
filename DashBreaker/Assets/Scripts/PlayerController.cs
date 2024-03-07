@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic; 
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,6 +39,16 @@ public class PlayerController : MonoBehaviour
     public float perfectionistStacks;
     public float currentBonusModifier = 0.1f;
     public bool VampirismActive;
+    public bool TimeStopActive;
+    public bool TimeStopTriggered;
+    // Cooldown variables
+    public float timeStopCooldown = 5f; // Adjust the cooldown time as needed
+    public float timeStopCooldownTimer = 0f;
+    private bool isTimeStopCooldownActive = false;
+    private List<Vector2> storedPositions = new List<Vector2>();
+    // Define a coroutine queue
+    Queue<Vector2> storedPositionsQueue = new Queue<Vector2>();
+
 
     void Start()
     {
@@ -50,13 +61,26 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Update the time stop cooldown timer if it's active
+        if (isTimeStopCooldownActive)
+        {
+            timeStopCooldownTimer -= Time.deltaTime;
+            // Check if the cooldown has ended
+            if (timeStopCooldownTimer <= 0f)
+            {
+                timeStopCooldownTimer = 0f;
+                isTimeStopCooldownActive = false;
+            }
+        }
         HandlePlayerInput();
     }
+
+
 
     void HandlePlayerInput()
     {
         // Check for mouse click
-        if (Input.GetMouseButtonDown(0) && !cooldownEnabled)
+        if (Input.GetMouseButtonDown(0) && !cooldownEnabled && !TimeStopTriggered)
         {
             // Convert the mouse position from screen space to world space (2D)
             mousePosition = Input.mousePosition;
@@ -67,8 +91,67 @@ public class PlayerController : MonoBehaviour
             // Move player to the clicked spot
             StartCoroutine(PerformDashAttack(clickedPoint));
             DamageObjectsInPath(clickedPoint);
-
         }
+
+        // Check for time stop activation
+        if (Input.GetKeyDown(KeyCode.Space) && TimeStopActive  && !isTimeStopCooldownActive)
+        {
+            if (!TimeStopTriggered)
+            {
+                TimeStopTriggered = true;
+                Time.timeScale = 0f; // This freezes time
+            }
+            else
+            {
+                
+                Time.timeScale = 0.1f; // Resume time
+                moveSpeed *= 10f;
+                // Add stored positions to the queue
+                foreach (Vector2 storedPosition in storedPositions)
+                {
+                    storedPositionsQueue.Enqueue(storedPosition);
+                }
+                // Start executing coroutines from the queue
+                StartCoroutine(ExecuteCoroutineQueue());
+            }
+        }
+
+        // Store mouse click positions during time stop
+        if (TimeStopTriggered && Input.GetMouseButtonDown(0) && storedPositions.Count < 7)
+        {
+            mousePosition = Input.mousePosition;
+            Vector2 clickedPoint = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y));
+            storedPositions.Add(clickedPoint);
+        }
+    }
+
+    IEnumerator ExecuteCoroutineQueue()
+    {
+        // Execute coroutines from the queue
+        while (storedPositionsQueue.Count > 0)
+        {
+            Vector2 storedPosition = storedPositionsQueue.Dequeue();
+            yield return StartCoroutine(PerformDashAttack(storedPosition));
+            DamageObjectsInPath(storedPosition);
+        }
+        
+        // Clear the queue after executing all coroutines
+        storedPositionsQueue.Clear();
+        storedPositions.Clear();
+        
+        // Reset time stop variables
+        TimeStopTriggered = false;
+        Time.timeScale = 1f;
+        moveSpeed /= 10f;
+        StartCooldown();
+    }
+
+
+    void StartCooldown()
+    {
+        // Start the time stop cooldown
+        isTimeStopCooldownActive = true;
+        timeStopCooldownTimer = timeStopCooldown;
     }
 
     IEnumerator PerformDashAttack(Vector2 targetPosition)
@@ -106,7 +189,10 @@ public class PlayerController : MonoBehaviour
             BurstHolder.GetComponent<BurstCrash>().ActivateBurstCrash();
         }
         isInvincible = false;
-        yield return new WaitForSeconds(cooldown);
+        if(!TimeStopTriggered)
+        {
+            yield return new WaitForSeconds(cooldown);
+        }
         cooldownEnabled = false;
         
     }

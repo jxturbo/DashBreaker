@@ -475,6 +475,17 @@ MonoBehaviour:
     expMultiplier: 0
     isAbility: 1
     AbilityId: 3
+  - attributeName: TimeStop
+    description: Press [Space] to stop time and preload 7 attacks for the player
+      to immediately perform when 7 targets are selected
+    contextImage: {fileID: 0}
+    moveSpeedMultiplier: 0
+    damageAmountIncrease: 0
+    maxDistanceMultiplier: 0
+    cooldownMultiplier: 0
+    expMultiplier: 0
+    isAbility: 1
+    AbilityId: 4
   modifierCards:
   - {fileID: 437024545}
   - {fileID: 364844709}
@@ -1562,6 +1573,10 @@ MonoBehaviour:
   perfectionistStacks: 0
   currentBonusModifier: 0.1
   VampirismActive: 0
+  TimeStopActive: 1
+  TimeStopTriggered: 0
+  timeStopCooldown: 0
+  timeStopCooldownTimer: 0
 --- !u!212 &903476578
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -64,7 +64,7 @@ public class LevelUpAugment : MonoBehaviour
                 player.VampirismActive = true;
                 break;
             case 4:
-                // Apply powerup for ID 4
+                player.TimeStopActive = true;
                 break;
             default:
                 // Handle cases where ID is not in range 1 to 4
