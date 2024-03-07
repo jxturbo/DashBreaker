@@ -1575,7 +1575,7 @@ MonoBehaviour:
   VampirismActive: 0
   TimeStopActive: 1
   TimeStopTriggered: 0
-  timeStopCooldown: 0
+  timeStopCooldown: 120
   timeStopCooldownTimer: 0
 --- !u!212 &903476578
 SpriteRenderer:
