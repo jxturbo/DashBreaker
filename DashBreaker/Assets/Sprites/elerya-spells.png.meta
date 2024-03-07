@@ -1,0 +1,1900 @@
+fileFormatVersion: 2
+guid: 3ddb4de71ed86214d94859a5c34cd48a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: elerya-spells_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece106f9b8af6aa47b1d0054493b061d
+      internalID: 1843716226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40aed14b2e654004f8c9530a70c03f2b
+      internalID: -1025013094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec5a17659eb3ef4ca8cebd6d1ff0a72
+      internalID: -1349478766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5a24a0fea80b14ba83a86252355e33
+      internalID: 1275524145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_4
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49911df4a8cdfb84bb2f9bea569a2cfb
+      internalID: -1776113588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f110170a8334543a97b626c29b35e4
+      internalID: 1841225792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_6
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c040f94738ceb0d44b3960797d4e18d3
+      internalID: -1066325204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_7
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 381
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cbc84e1bc267d408e2e70fac7f1801
+      internalID: 1335784306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3b3fb8ac3dec7428a8d4a96c2a7ac0
+      internalID: -1283350176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_9
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089fa0d85fb768e498ef365e02e77252
+      internalID: -764624456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_10
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171c5b8fd958d1441a3b3f7d23860788
+      internalID: 1300919871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_11
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f90afe26ce8c9d42b4a3b39c1428d23
+      internalID: 553073866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_12
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf3f2402aa56e5429677740b037fbdf
+      internalID: 2056392830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_13
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc13a26bbc596c45a8818fc62105273
+      internalID: 1661563393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_14
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a972c2a0708d7f45ada1396b684bff8
+      internalID: 1248918623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_15
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 341
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c331e4d0c997336468b306136ceb9a11
+      internalID: 1487830040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_16
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299c64600cf40a04789fe5aa69757197
+      internalID: 1665650935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_17
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5ce3517ba41734ba947b57105ee43c
+      internalID: 266883775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_18
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65b677b40d53ad4bb7064f338d69f17
+      internalID: -913770169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_19
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d1355703f968442bac7d06735c7abf
+      internalID: -1664023213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_20
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99b2e31d2bdb5e4b8037f114bfb4121
+      internalID: 659217533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_21
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad461da6b9f84942bc19a7b81cbd1ec
+      internalID: -1677847777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_22
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d1e57f7973d7641ab3b0441dffa63b
+      internalID: -1072406353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_23
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 301
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c3e6a4f981f9d4d9965a945616df65
+      internalID: 1772725727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_24
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca82d23f1db03d48b51d0c9847bd4be
+      internalID: -1211403997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_25
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5ae817cbbf9234f836f5891ece3b8b
+      internalID: 35554959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_26
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed64525496c1042428a266f048f2a1c8
+      internalID: -2129917463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_27
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d36ef5ebaaa094788c06323e414d37
+      internalID: 10437273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_28
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1eb3454ae5598a4d8d63e6db227f7fb
+      internalID: 650676899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_29
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c2e09b69caf054e8436e5d6f5f34db
+      internalID: -445297595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_30
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7917f3b56178922459b421dfa9394555
+      internalID: 714002438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_31
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 261
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e61dc432d436f364f9b69f41d591f3de
+      internalID: -879475363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_32
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecdae912341285489d251690eb1f700
+      internalID: 947245704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_33
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afab610af86943945bff389c050fbb50
+      internalID: -781425044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_34
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b617f05d447fdc46a49276310cc9f69
+      internalID: -1800343515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_35
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b726af14d1b74da43a85bff924b54002
+      internalID: 567575559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_36
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808b59ed555bbbe468bf45503f9462b7
+      internalID: -1871316512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_37
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7739766fc0692e046a0fdfe52c2a033a
+      internalID: -2096679781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_38
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 634b94ab9b3774e4e9daa8960c388ada
+      internalID: -1528831551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_39
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 221
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f9af5c3c692d446a07f5c00ed1c46d
+      internalID: 1634800488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_40
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a5e3ea57b3b664f8b713503ee8208d
+      internalID: -1923913061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_41
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f02dc38dd238a54fa0287790d4bc35b
+      internalID: 1915939155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_42
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4257153d727916b48bc9dd619d4c0356
+      internalID: 774353914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_43
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2333db9046fc8449885d1972821b74
+      internalID: 1312385134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_44
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f24dc293ac9ce848901f2aad0141dc7
+      internalID: -1583210070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_45
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abb0130d66fb5f4c9cec0ae7c2294dc
+      internalID: -1767733389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_46
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6078b12ee0cae9347bd5a2ce675b8243
+      internalID: 294905981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_47
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 181
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da633a68651bb2641bd41045418c05e0
+      internalID: 1737489710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_48
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58348b689ef11074bb8fbb2100fa311d
+      internalID: -222578153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_49
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59658242c160754a87906c234cc3d35
+      internalID: 40053928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_50
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f012cd05f3bdf9b449ba19e3f93bbe3e
+      internalID: 25449831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_51
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4623c4e4a33d2dc4c845bd324b676f9c
+      internalID: 78535078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_52
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6386f18b007a0da4ca845a7731da4b5e
+      internalID: -1919095663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_53
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f72e1f8870e75458c072aff69c5d36
+      internalID: -1633894891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_54
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b1e9d325642ed4eafa1b3621c45bd1
+      internalID: 1849587795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_55
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 141
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb4c3636bf55974184c4e0154c9fed2
+      internalID: -395064929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_56
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7641c774f3a0f44aa79e34ae9e3265
+      internalID: 1085664910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_57
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef07a43e7d198d0418d1709a46625f9b
+      internalID: -2043473880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_58
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf9a6f0dc2681e479aa8483e88627d9
+      internalID: 1124420028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_59
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be827a0c8aa23ae46a9a65f5a5c1697b
+      internalID: -904394301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_60
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ca048d65f6b9f429853b5c1fd7dc5d
+      internalID: 394414517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_61
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f975b3374e02d43923b6e401ea7b88
+      internalID: -1374716798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_62
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f95033f8cc530e468e86e9f691f97d8
+      internalID: 1416163207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_63
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 101
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04b4e72062b60a4eb80e629fcb69218
+      internalID: -791282368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_64
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc96f6b523c113b45beee4dd199ad971
+      internalID: -501782826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_65
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08a74a66c66b7e4cb85c8b036a92279
+      internalID: 1786654010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_66
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38cf29128cbd75d429203b1375bbccc0
+      internalID: -1743217494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_67
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e5083ae5fa0674dbd3d9ac3dabec3b
+      internalID: 1286550180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_68
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee03a3452f16c064d92aa107bd5cc370
+      internalID: -74370770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_69
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea44ca98643a20f409b14f32e1e542c8
+      internalID: 1292344798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_70
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ed7beecc44a7549894344e8d98f10d
+      internalID: 1443347595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_71
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 61
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a5ca93c8e40bc43bb203fd18c4751b
+      internalID: 949300519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_72
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86ac73120cb71941b5911646401f63b
+      internalID: -1422811840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_73
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acefe9d23f3c0364baf7c654a1cacef9
+      internalID: -765086524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_74
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42df1b9941fa81245972d7e8f849e630
+      internalID: -719497634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_75
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91462a19addf254fbd5595d1a708072
+      internalID: 728045256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_76
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49637eac6cb52d6488a81e2cdd72b631
+      internalID: 960892535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_77
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4605eed6bbdbc048bd64670abb9fec0
+      internalID: 1711166632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_78
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288568fd2a54784428ecd09dd3bee903
+      internalID: 1951798447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elerya-spells_79
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 21
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e3e65a04e5534439796d660cfc2e76
+      internalID: 1598722643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      elerya-spells_0: 1843716226
+      elerya-spells_1: -1025013094
+      elerya-spells_10: 1300919871
+      elerya-spells_11: 553073866
+      elerya-spells_12: 2056392830
+      elerya-spells_13: 1661563393
+      elerya-spells_14: 1248918623
+      elerya-spells_15: 1487830040
+      elerya-spells_16: 1665650935
+      elerya-spells_17: 266883775
+      elerya-spells_18: -913770169
+      elerya-spells_19: -1664023213
+      elerya-spells_2: -1349478766
+      elerya-spells_20: 659217533
+      elerya-spells_21: -1677847777
+      elerya-spells_22: -1072406353
+      elerya-spells_23: 1772725727
+      elerya-spells_24: -1211403997
+      elerya-spells_25: 35554959
+      elerya-spells_26: -2129917463
+      elerya-spells_27: 10437273
+      elerya-spells_28: 650676899
+      elerya-spells_29: -445297595
+      elerya-spells_3: 1275524145
+      elerya-spells_30: 714002438
+      elerya-spells_31: -879475363
+      elerya-spells_32: 947245704
+      elerya-spells_33: -781425044
+      elerya-spells_34: -1800343515
+      elerya-spells_35: 567575559
+      elerya-spells_36: -1871316512
+      elerya-spells_37: -2096679781
+      elerya-spells_38: -1528831551
+      elerya-spells_39: 1634800488
+      elerya-spells_4: -1776113588
+      elerya-spells_40: -1923913061
+      elerya-spells_41: 1915939155
+      elerya-spells_42: 774353914
+      elerya-spells_43: 1312385134
+      elerya-spells_44: -1583210070
+      elerya-spells_45: -1767733389
+      elerya-spells_46: 294905981
+      elerya-spells_47: 1737489710
+      elerya-spells_48: -222578153
+      elerya-spells_49: 40053928
+      elerya-spells_5: 1841225792
+      elerya-spells_50: 25449831
+      elerya-spells_51: 78535078
+      elerya-spells_52: -1919095663
+      elerya-spells_53: -1633894891
+      elerya-spells_54: 1849587795
+      elerya-spells_55: -395064929
+      elerya-spells_56: 1085664910
+      elerya-spells_57: -2043473880
+      elerya-spells_58: 1124420028
+      elerya-spells_59: -904394301
+      elerya-spells_6: -1066325204
+      elerya-spells_60: 394414517
+      elerya-spells_61: -1374716798
+      elerya-spells_62: 1416163207
+      elerya-spells_63: -791282368
+      elerya-spells_64: -501782826
+      elerya-spells_65: 1786654010
+      elerya-spells_66: -1743217494
+      elerya-spells_67: 1286550180
+      elerya-spells_68: -74370770
+      elerya-spells_69: 1292344798
+      elerya-spells_7: 1335784306
+      elerya-spells_70: 1443347595
+      elerya-spells_71: 949300519
+      elerya-spells_72: -1422811840
+      elerya-spells_73: -765086524
+      elerya-spells_74: -719497634
+      elerya-spells_75: 728045256
+      elerya-spells_76: 960892535
+      elerya-spells_77: 1711166632
+      elerya-spells_78: 1951798447
+      elerya-spells_79: 1598722643
+      elerya-spells_8: -1283350176
+      elerya-spells_9: -764624456
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
