@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Transform player;
+    public Rigidbody2D rb;
     public Vector2 hold;
     public int moveSpeed;
     public int expiry;
@@ -15,7 +16,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -31,7 +32,9 @@ public class Bullet : MonoBehaviour
 
     void FireAtPlayer()
     {
-        transform.position = Vector2.Lerp(transform.position, hold, moveSpeed * Time.deltaTime);
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed); 
         StartCoroutine(MissedBullet());
     }
 
