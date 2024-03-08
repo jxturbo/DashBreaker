@@ -17,7 +17,7 @@ public class LevelUpAugment : MonoBehaviour
     {
         public string attributeName;
         public string description;
-        public Image contextImage;
+        public Sprite accompanyingSprite;
         public float moveSpeedMultiplier = 1.1f;
         public float damageAmountIncrease = 1;
         public float maxDistanceMultiplier = 1.5f;
@@ -138,7 +138,7 @@ public class LevelUpAugment : MonoBehaviour
 
             // Set the context image sprite
             Image contextImage = modifierCards[i].transform.Find("ContextImage").GetComponent<Image>();
-            //contextImage.sprite = modifiers[randomIndex].contextImage.sprite;
+            contextImage.sprite = modifiers[randomIndex].accompanyingSprite;
         }
     }
 
