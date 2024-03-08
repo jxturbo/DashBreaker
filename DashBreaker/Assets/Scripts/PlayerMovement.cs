@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (x != 0 || y != 0 )
         {
-            //playerAnim.SetBool("Walking", true);
+            playerAnim.SetBool("Move", true);
             // Simple left-right movement vector in 2D
             Vector2 move = new Vector2(x, y);
             // Move the player in accordance with the vector smoothly in 2D space
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            //playerAnim.SetBool("Walking", false);
+            playerAnim.SetBool("Move", false);
             isMoving = false;
             rb.velocity = Vector2.zero;
         }

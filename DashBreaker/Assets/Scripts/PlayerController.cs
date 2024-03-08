@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [Header("Misc ")]
     public Health playerHp;
     private Camera mainCamera;
+    public Animator PlayerAnim;
+    public SpriteRenderer PlayerSprite;
 
     [Header("Exp ")]
     public float currentExp = 0f;
@@ -158,12 +160,17 @@ public class PlayerController : MonoBehaviour
     {
         cooldownEnabled = true;
         isInvincible = true;
+
         // Calculate the distance between the current position and the target position
         float originalDistance = Vector2.Distance(transform.position, targetPosition);
         // Calculate the duration of the movement based on the original distance
         float duration = originalDistance / moveSpeed;
         float startTime = Time.time;
         Vector2 startPosition = transform.position;
+        PlayerAnim.SetBool("Attack", true);
+
+        // Determine if the target position is to the left or right of the player
+        bool isMovingLeft = targetPosition.x < startPosition.x;
 
         while (Time.time < startTime + duration)
         {
@@ -180,22 +187,40 @@ public class PlayerController : MonoBehaviour
             float t = (Time.time - startTime) / duration;
             // Move the player
             transform.position = Vector2.Lerp(startPosition, targetPosition, t);
+
+            // Determine the current movement direction
+            bool movingLeftNow = targetPosition.x < transform.position.x;
+
+            // Flip the sprite if the movement direction changes
+            if (movingLeftNow != isMovingLeft)
+            {
+                // Assuming your sprite renderer is attached to the same GameObject
+                // If not, replace 'GetComponent<SpriteRenderer>()' with your sprite renderer reference
+                PlayerSprite.flipX = movingLeftNow;
+                isMovingLeft = movingLeftNow;
+            }
+
             yield return null;
         }
+
         //performs burst crash at end of attack
-        if(BurstCrashActive)
+        if (BurstCrashActive)
         {
             BurstHolder.SetActive(true);
             BurstHolder.GetComponent<BurstCrash>().ActivateBurstCrash();
         }
+
         isInvincible = false;
-        if(!TimeStopTriggered)
+        PlayerAnim.SetBool("Attack", false);
+
+        if (!TimeStopTriggered)
         {
             yield return new WaitForSeconds(cooldown);
         }
+
         cooldownEnabled = false;
-        
     }
+
 
     void DamageObjectsInPath(Vector2 targetPosition)
     {
