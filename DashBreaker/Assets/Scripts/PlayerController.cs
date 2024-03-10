@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public Animator PlayerAnim;
     public SpriteRenderer PlayerSprite;
     public float killcount;
+    public AudioClip dashSound;
+    public AudioSource SFX;
 
     [Header("Exp ")]
     public float currentExp = 0f;
@@ -169,7 +171,9 @@ public class PlayerController : MonoBehaviour
         float startTime = Time.time;
         Vector2 startPosition = transform.position;
         PlayerAnim.SetBool("Attack", true);
-
+        SFX.pitch = 1.2f;
+        SFX.PlayOneShot(dashSound);
+        SFX.pitch = 1f;
         // Determine if the target position is to the left or right of the player
         bool isMovingLeft = targetPosition.x < startPosition.x;
 

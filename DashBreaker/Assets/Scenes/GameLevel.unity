@@ -2083,6 +2083,8 @@ MonoBehaviour:
   PlayerAnim: {fileID: 417060285}
   PlayerSprite: {fileID: 417060286}
   killcount: 0
+  dashSound: {fileID: 8300000, guid: a9302ea2a906277468bc1f8e31100a2a, type: 3}
+  SFX: {fileID: 1126920260}
   currentExp: 0
   maxExp: 100
   level: 1
@@ -2094,7 +2096,7 @@ MonoBehaviour:
   perfectionistStacks: 0
   currentBonusModifier: 0.1
   VampirismActive: 0
-  TimeStopActive: 1
+  TimeStopActive: 0
   TimeStopTriggered: 0
   timeStopCooldown: 120
   timeStopCooldownTimer: 0
@@ -2410,11 +2412,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 2d71f27de59c388408c803c1e3526ec7, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a9302ea2a906277468bc1f8e31100a2a, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1.1
-  Loop: 1
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
