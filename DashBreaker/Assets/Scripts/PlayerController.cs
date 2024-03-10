@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Camera mainCamera;
     public Animator PlayerAnim;
     public SpriteRenderer PlayerSprite;
+    public float killcount;
 
     [Header("Exp ")]
     public float currentExp = 0f;

@@ -148,8 +148,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57061869}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.33599997, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -493,6 +493,17 @@ MonoBehaviour:
   player: {fileID: 903476577}
   playerMove: {fileID: 903476582}
   currentExpMultiplier: 1
+--- !u!114 &229465990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 987593453880077002, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
+  m_PrefabInstance: {fileID: 851820968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &304856022
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +975,7 @@ GameObject:
   - component: {fileID: 417060284}
   - component: {fileID: 417060286}
   - component: {fileID: 417060285}
+  - component: {fileID: 417060287}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -1060,6 +1072,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &417060287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417060283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da50fb1cd5384024d9fed3370c81f917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinLoseScreen: {fileID: 2113161437}
+  WinLoseText: {fileID: 1331629372}
+  playerCtrl: {fileID: 903476577}
+  killcount: {fileID: 229465990}
+  backgroundAudio: {fileID: 1896091591}
+  Lose: {fileID: 8300000, guid: 84bcbf54cd893474e8612877985b40c1, type: 3}
 --- !u!1 &437024545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1718,14 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 987593453880077012, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
+      propertyPath: m_Name
+      value: TotalKilled
+      objectReference: {fileID: 0}
+    - target: {fileID: 987593453880077012, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
+      propertyPath: m_TagString
+      value: KillCount
+      objectReference: {fileID: 0}
     - target: {fileID: 3055392297081128703, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1806,7 +1844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610213515392697614, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3610213515659643990, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1834,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3634363413762734394, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4442532109035721453, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1870,7 +1908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6848382360700254442, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2044,6 +2082,7 @@ MonoBehaviour:
   playerHp: {fileID: 903476583}
   PlayerAnim: {fileID: 417060285}
   PlayerSprite: {fileID: 417060286}
+  killcount: 0
   currentExp: 0
   maxExp: 100
   level: 1
@@ -2171,6 +2210,8 @@ MonoBehaviour:
   maxHealth: 6
   currentHealth: 0
   isEnemy: 0
+  PlayerAnim: {fileID: 417060285}
+  Trail: {fileID: 1765716513}
   ExperiencePoints: 0
 --- !u!1 &1032917972
 GameObject:
@@ -2369,11 +2410,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 2d71f27de59c388408c803c1e3526ec7, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a9302ea2a906277468bc1f8e31100a2a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
+  m_Pitch: 1.1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2898,6 +2939,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1331629372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3610213515806351734, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
+  m_PrefabInstance: {fileID: 851820968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1482416094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,6 +4374,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097295914}
   m_CullTransparentMesh: 1
+--- !u!1 &2113161437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3610213516054432977, guid: 57680031e4d1ffa419e355d588bd5f9b, type: 3}
+  m_PrefabInstance: {fileID: 851820968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2120472747
 GameObject:
   m_ObjectHideFlags: 0

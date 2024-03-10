@@ -8,6 +8,8 @@ TagManager:
   - SpawnPoint
   - BulletHold
   - SpawnHold
+  - projectile
+  - KillCount
   layers:
   - Default
   - TransparentFX
