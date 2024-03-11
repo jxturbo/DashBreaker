@@ -11,6 +11,10 @@ public class LevelUpAugment : MonoBehaviour
     public PlayerController player;
     public PlayerMovement playerMove;
     public float currentExpMultiplier;
+    public float x, y, z;
+    public GameObject[] cardbacks;
+    public bool cardBackIsActive = false;
+    public int timer;
 
     [System.Serializable]
     public class Modifiers
@@ -30,28 +34,30 @@ public class LevelUpAugment : MonoBehaviour
     void ApplyModifiers(Modifiers modifiers)
     {
         if (modifiers.moveSpeedMultiplier != 0f)
+        {
             player.moveSpeed += modifiers.moveSpeedMultiplier * player.baseMoveSpeed;
             playerMove.currentSpeed += modifiers.moveSpeedMultiplier * playerMove.currentSpeed;
+        }
 
         if (modifiers.damageAmountIncrease != 0)
-            player.damageAmount += modifiers.damageAmountIncrease * player.basedamageAmount;
+            player.damageAmount += modifiers.damageAmountIncrease;
 
         if (modifiers.maxDistanceMultiplier != 0f)
-            player.maxDistance += modifiers.maxDistanceMultiplier * player.baseMaxDistance ;
+            player.maxDistance += modifiers.maxDistanceMultiplier * player.baseMaxDistance;
 
         if (modifiers.cooldownMultiplier != 0f)
             player.cooldown += modifiers.cooldownMultiplier * player.baseCooldown;
 
         if (modifiers.expMultiplier != 0f)
             currentExpMultiplier += modifiers.expMultiplier * currentExpMultiplier;
+        ResetAllCards();
         gameObject.SetActive(false);
-        Time.timeScale = 1f;
-
+        GlobalVariableHolder.timePaused = false;
     }
 
     void ApplyPowerup(Modifiers modifier)
     {
-        switch(modifier.AbilityId)
+        switch (modifier.AbilityId)
         {
             case 1:
                 player.BurstCrashActive = true;
@@ -70,15 +76,44 @@ public class LevelUpAugment : MonoBehaviour
                 // Handle cases where ID is not in range 1 to 4
                 break;
         }
+        ResetAllCards();
         gameObject.SetActive(false);
-        Time.timeScale = 1f;
+        GlobalVariableHolder.timePaused = false;
     }
+
+    // Method to reset the rotation of the card and set the cardback to active
+    void ResetAllCards()
+    {
+        for (int i = 0; i < modifierCards.Length; i++)
+        {
+            ResetCard(modifierCards[i], cardbacks[i], i);
+        }
+    }
+
+    void ResetCard(GameObject card, GameObject cardback, int index)
+    {
+        card.transform.rotation = Quaternion.identity; // Reset rotation
+        cardback.SetActive(true); // Set cardback to active
+
+        string buttonName = "ToClick" + index; // Construct the button name using the index
+        Button button = GameObject.Find(buttonName)?.GetComponent<Button>(); // Find the button by name
+
+        if (button != null)
+        {
+            button.interactable = false; // Set the interactable property of the Button to false
+        }
+        else
+        {
+            Debug.LogError("Button with name " + buttonName + " not found.");
+        }
+    }
+
 
     public void SelectCard(int cardId)
     {
         // Find the TextMeshProUGUI component for the attribute name in the clicked card
         TextMeshProUGUI attributeNameText = modifierCards[cardId].transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        
+
         // Get the attribute name from the text component
         string attributeName = attributeNameText.text;
 
@@ -87,7 +122,7 @@ public class LevelUpAugment : MonoBehaviour
         {
             if (modifier.attributeName == attributeName)
             {
-                if(!modifier.isAbility)
+                if (!modifier.isAbility)
                 {
                     ApplyModifiers(modifier);
                     // Remove the modifier from the array
@@ -100,6 +135,7 @@ public class LevelUpAugment : MonoBehaviour
                 break;
             }
         }
+        
     }
 
     void RemoveModifier(Modifiers modifierToRemove)
@@ -108,7 +144,6 @@ public class LevelUpAugment : MonoBehaviour
         tempList.Remove(modifierToRemove);
         modifiers = tempList.ToArray();
     }
-
 
     public void ShowCards()
     {
@@ -140,6 +175,53 @@ public class LevelUpAugment : MonoBehaviour
             Image contextImage = modifierCards[i].transform.Find("ContextImage").GetComponent<Image>();
             contextImage.sprite = modifiers[randomIndex].accompanyingSprite;
         }
+
+        // Start flipping the cards after setting them up
+        StartFlip();
     }
+
+    public void StartFlip()
+    {
+        StartCoroutine(CalculateFlip());
+    }
+
+    IEnumerator CalculateFlip()
+    {
+        for (int i = 0; i < modifierCards.Length; i++)
+        {
+            yield return StartCoroutine(FlipCard(modifierCards[i], cardbacks[i], i));
+            yield return new WaitForSeconds(0.25f); // Delay between flipping each card
+        }
+    }
+
+    IEnumerator FlipCard(GameObject card, GameObject cardback, int index)
+    {
+        string buttonName = "ToClick" + index; // Construct the button name using the index
+        Button button = GameObject.Find(buttonName)?.GetComponent<Button>(); // Find the button by name
+
+        if (button != null)
+        {
+            for (int i = 0; i < 90; i++)
+            {
+                yield return new WaitForSeconds(0.01f);
+                card.transform.Rotate(new Vector3(x, y, z));
+                timer++;
+                if (timer == 45 || timer == -45)
+                {
+                    
+                    cardback.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("Button with name " + buttonName + " not found.");
+        }
+
+        timer = 0;
+        button.interactable = true; // Set the interactable property of the Button
+    }
+
+
 
 }

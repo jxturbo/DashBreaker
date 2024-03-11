@@ -17,7 +17,10 @@ public class CountUpTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateTimer();
+        if(!GlobalVariableHolder.timePaused)
+        {
+            UpdateTimer();
+        }
     }
 
     void UpdateTimer()
@@ -28,6 +31,6 @@ public class CountUpTimer : MonoBehaviour
         string minutes = Mathf.Floor(elapsedTime / 60).ToString("00");
         string seconds = (elapsedTime % 60).ToString("00");
         // Update the TextMeshPro text
-        timerText.text = string.Format("{0} min {1} sec", minutes, seconds);
+        timerText.text = string.Format("{0} : {1} ", minutes, seconds);
     }
 }

@@ -66,18 +66,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Update the time stop cooldown timer if it's active
-        if (isTimeStopCooldownActive)
+        if(!GlobalVariableHolder.timePaused)
         {
-            timeStopCooldownTimer -= Time.deltaTime;
-            // Check if the cooldown has ended
-            if (timeStopCooldownTimer <= 0f)
+            // Update the time stop cooldown timer if it's active
+            if (isTimeStopCooldownActive)
             {
-                timeStopCooldownTimer = 0f;
-                isTimeStopCooldownActive = false;
+                timeStopCooldownTimer -= Time.deltaTime;
+                // Check if the cooldown has ended
+                if (timeStopCooldownTimer <= 0f)
+                {
+                    timeStopCooldownTimer = 0f;
+                    isTimeStopCooldownActive = false;
+                }
             }
+            HandlePlayerInput();
         }
-        HandlePlayerInput();
+
     }
 
 
@@ -293,6 +297,6 @@ public class PlayerController : MonoBehaviour
     }
     void PauseTime()
     {
-        Time.timeScale = 0f;
+        GlobalVariableHolder.timePaused = true;
     }
 }

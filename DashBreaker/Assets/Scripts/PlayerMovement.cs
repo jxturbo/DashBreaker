@@ -19,7 +19,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
+        if(!GlobalVariableHolder.timePaused)
+        {
+            HandleMovement();
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f, 0f);
+        }
     }
     //wasd to move
     //shift to sprint
