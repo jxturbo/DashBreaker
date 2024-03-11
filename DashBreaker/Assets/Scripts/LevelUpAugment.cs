@@ -15,6 +15,7 @@ public class LevelUpAugment : MonoBehaviour
     public GameObject[] cardbacks;
     public bool cardBackIsActive = false;
     public int timer;
+    public GameObject specialMeter;
 
     [System.Serializable]
     public class Modifiers
@@ -71,6 +72,7 @@ public class LevelUpAugment : MonoBehaviour
                 break;
             case 4:
                 player.TimeStopActive = true;
+                specialMeter.SetActive(true);
                 break;
             default:
                 // Handle cases where ID is not in range 1 to 4

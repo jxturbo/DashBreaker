@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public float killcount;
     public AudioClip dashSound;
     public AudioSource SFX;
+    public GameObject marker;
+    public GameObject markerHolder;
 
     [Header("Exp ")]
     public float currentExp = 0f;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public float timeStopCooldown = 5f; // Adjust the cooldown time as needed
     public float timeStopCooldownTimer = 0f;
     private bool isTimeStopCooldownActive = false;
+    private bool timeStopAttack;
     private List<Vector2> storedPositions = new List<Vector2>();
     // Define a coroutine queue
     Queue<Vector2> storedPositionsQueue = new Queue<Vector2>();
@@ -110,9 +113,9 @@ public class PlayerController : MonoBehaviour
                 TimeStopTriggered = true;
                 Time.timeScale = 0f; // This freezes time
             }
-            else
+            else if(!timeStopAttack)
             {
-                
+                timeStopAttack = true;
                 Time.timeScale = 0.1f; // Resume time
                 moveSpeed *= 10f;
                 // Add stored positions to the queue
@@ -131,6 +134,22 @@ public class PlayerController : MonoBehaviour
             mousePosition = Input.mousePosition;
             Vector2 clickedPoint = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y));
             storedPositions.Add(clickedPoint);
+            // Instantiate marker
+            GameObject newMarker = Instantiate(marker, clickedPoint, Quaternion.identity);
+            newMarker.transform.parent = markerHolder.transform;
+            if(storedPositions.Count == 7 && !timeStopAttack)
+            {
+                timeStopAttack = true; 
+                Time.timeScale = 0.1f; // Resume time
+                moveSpeed *= 10f;
+                // Add stored positions to the queue
+                foreach (Vector2 storedPosition in storedPositions)
+                {
+                    storedPositionsQueue.Enqueue(storedPosition);
+                }
+                // Start executing coroutines from the queue
+                StartCoroutine(ExecuteCoroutineQueue());
+            }
         }
     }
 
@@ -142,8 +161,13 @@ public class PlayerController : MonoBehaviour
             Vector2 storedPosition = storedPositionsQueue.Dequeue();
             yield return StartCoroutine(PerformDashAttack(storedPosition));
             DamageObjectsInPath(storedPosition);
+            // Remove the first child in markerHolder if it exists
+            if (markerHolder.transform.childCount > 0)
+            {
+                Destroy(markerHolder.transform.GetChild(0).gameObject);
+            }
         }
-        
+
         // Clear the queue after executing all coroutines
         storedPositionsQueue.Clear();
         storedPositions.Clear();
@@ -153,6 +177,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1f;
         moveSpeed /= 10f;
         StartCooldown();
+        timeStopAttack = false;
     }
 
 
