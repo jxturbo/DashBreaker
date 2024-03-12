@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public float maxExp = 100f;
     public int level = 1;
     public float MaxExpIncreaseAmount = 50f;
+    public float currentExpMultiplier = 1f;
     public GameObject AttributeSelectScreen;
 
     [Header("Powerups ")]
@@ -298,7 +299,7 @@ public class PlayerController : MonoBehaviour
 
     public void GainExp(float amount)
     {
-        currentExp += amount;
+        currentExp += amount * currentExpMultiplier;
         // Ensure currentExp does not exceed maxExp
         currentExp = Mathf.Min(currentExp, maxExp);
         UpdateExpBar();

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Text.RegularExpressions;
+
 
 public class LevelUpAugment : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class LevelUpAugment : MonoBehaviour
     private int currentIndex = 0;
     public PlayerController player;
     public PlayerMovement playerMove;
-    public float currentExpMultiplier;
+    
     public float x, y, z;
     public GameObject[] cardbacks;
     public bool cardBackIsActive = false;
@@ -29,7 +31,7 @@ public class LevelUpAugment : MonoBehaviour
         public string description;
         public Sprite accompanyingSprite;
         public float moveSpeedMultiplier = 1.1f;
-        public float damageAmountIncrease = 1;
+        public float damageAmountIncrease = 1f;
         public float maxDistanceMultiplier = 1.5f;
         public float cooldownMultiplier = 1f;
         public float expMultiplier;
@@ -55,25 +57,159 @@ public class LevelUpAugment : MonoBehaviour
 
     void ApplyModifiers(Modifiers modifiers)
     {
+        bool isNewModifier = true;
+        foreach (Modifiers selectedModifier in selectedModifiers)
+        {
+            if (selectedModifier == modifiers)
+            {
+                isNewModifier = false;
+                break;
+            }
+        }
         if (modifiers.moveSpeedMultiplier != 0f)
         {
             player.moveSpeed += modifiers.moveSpeedMultiplier * player.baseMoveSpeed;
             playerMove.currentSpeed += modifiers.moveSpeedMultiplier * playerMove.currentSpeed;
+            if(isNewModifier)
+            {
+                modifiers.moveSpeedMultiplier = modifiers.moveSpeedMultiplier * 0.2f;
+            }
+
+        }
+        if (modifiers.damageAmountIncrease != 0f)
+        {
+            player.damageAmount += modifiers.damageAmountIncrease;
+            if(isNewModifier)
+            {
+                modifiers.damageAmountIncrease = modifiers.damageAmountIncrease * 0.2f;
+            }
+        }   
+        if (modifiers.maxDistanceMultiplier != 0f)
+        {
+            player.maxDistance += modifiers.maxDistanceMultiplier * player.baseMaxDistance;
+            if(isNewModifier)
+            {
+            modifiers.maxDistanceMultiplier = modifiers.maxDistanceMultiplier * 0.2f;
+            }
+        }
+        if (modifiers.cooldownMultiplier != 0f)
+        {
+            player.cooldown += modifiers.cooldownMultiplier * player.baseCooldown;
+            if(isNewModifier)
+            {
+                modifiers.cooldownMultiplier = modifiers.cooldownMultiplier * 0.2f;
+            }
+        }
+        if (modifiers.expMultiplier != 0f)
+        {
+            player.currentExpMultiplier += modifiers.expMultiplier * player.currentExpMultiplier;
+            if(isNewModifier)
+            {
+                modifiers.expMultiplier = modifiers.expMultiplier * 0.2f;
+            }
+        }
+        if(!modifiers.isAbility)
+        {
+            ResetAllCards();
+            AddToCurrentCards(modifiers);
+        }
+        // Access the attributeName of the modifier
+        string currentAttributeName = modifiers.attributeName;
+
+        // Split the attributeName to separate the number part
+        string[] parts = currentAttributeName.Split(' ');
+
+        // Initialize the number to 0 if there is no number or parsing fails
+        float number = 0;
+        if (parts.Length > 1)
+        {
+            // Try to parse the number part
+            if (!float.TryParse(parts[1], out number))
+            {
+                Debug.LogWarning("Failed to parse the number in attributeName: " + currentAttributeName);
+                number = 0; // Set number to 0 if parsing fails
+            }
         }
 
-        if (modifiers.damageAmountIncrease != 0)
-            player.damageAmount += modifiers.damageAmountIncrease;
+        // Increment the number by 1
+        number++;
+        // Update the attributeName with the incremented number
+        if (number >= 1)
+        {
+            // Add the current bonus modifier to the description if the number is 1
+            if (modifiers.moveSpeedMultiplier != 0f)
+            {
+                string moveSpeedMultiplierString = " (Spd: + " + (modifiers.moveSpeedMultiplier * number).ToString() + ")";
+                if (modifiers.description.Contains("Spd: +"))
+                {
+                    // Replace existing Move Speed multiplier with the current one
+                    modifiers.description = Regex.Replace(modifiers.description, @"\(Spd: + \d+(?:\.\d+)?\)", moveSpeedMultiplierString);
+                }
+                else
+                {
+                    modifiers.description += moveSpeedMultiplierString;
+                }
+            }
 
-        if (modifiers.maxDistanceMultiplier != 0f)
-            player.maxDistance += modifiers.maxDistanceMultiplier * player.baseMaxDistance;
+            if (modifiers.damageAmountIncrease != 0f)
+            {
+                string damageAmountIncreaseString = " (Dmg: + " + (modifiers.damageAmountIncrease * number).ToString() + ")";
+                if (modifiers.description.Contains("Dmg: +"))
+                {
+                    // Replace existing Damage Increase multiplier with the current one
+                    modifiers.description = Regex.Replace(modifiers.description, @"\(Dmg: + \d+(?:\.\d+)?\)", damageAmountIncreaseString);
+                }
+                else
+                {
+                    modifiers.description += damageAmountIncreaseString;
+                }
+            }
 
-        if (modifiers.cooldownMultiplier != 0f)
-            player.cooldown += modifiers.cooldownMultiplier * player.baseCooldown;
+            if (modifiers.maxDistanceMultiplier != 0f)
+            {
+                string maxDistanceMultiplierString = " (Max Distance: + " + (modifiers.maxDistanceMultiplier * number).ToString() + ")";
+                if (modifiers.description.Contains("Max Distance: +"))
+                {
+                    // Replace existing Max Distance multiplier with the current one
+                    modifiers.description = Regex.Replace(modifiers.description, @"\(Max Distance: + \d+(?:\.\d+)?\)", maxDistanceMultiplierString);
+                }
+                else
+                {
+                    modifiers.description += maxDistanceMultiplierString;
+                }
+            }
 
-        if (modifiers.expMultiplier != 0f)
-            currentExpMultiplier += modifiers.expMultiplier * currentExpMultiplier;
-        ResetAllCards();
-        gameObject.SetActive(false);
+            if (modifiers.cooldownMultiplier != 0f)
+            {
+                string cooldownMultiplierString = " (CD: + " + (modifiers.cooldownMultiplier * number).ToString() + ")";
+                if (modifiers.description.Contains("CD: +"))
+                {
+                    // Replace existing Cooldown multiplier with the current one
+                    modifiers.description = Regex.Replace(modifiers.description, @"\(CD: + \d+(?:\.\d+)?\)", cooldownMultiplierString);
+                }
+                else
+                {
+                    modifiers.description += cooldownMultiplierString;
+                }
+            }
+
+            if (modifiers.expMultiplier != 0f)
+            {
+                string expMultiplierString = " (Exp: + " + (modifiers.expMultiplier * number).ToString() + ")";
+                if (modifiers.description.Contains("Exp: +"))
+                {
+                    // Replace existing Exp Multiplier with the current one
+                    modifiers.description = Regex.Replace(modifiers.description, @"\(Exp: + \d+(?:\.\d+)?\)", expMultiplierString);
+                }
+                else
+                {
+                    modifiers.description += expMultiplierString;
+                }
+            }
+        }
+        // Update the attributeName with the incremented number
+        modifiers.attributeName = parts[0] + " +" + number;
+
         GlobalVariableHolder.timePaused = false;
     }
 
@@ -100,7 +236,7 @@ public class LevelUpAugment : MonoBehaviour
                 break;
         }
         ResetAllCards();
-        gameObject.SetActive(false);
+        AddToCurrentCards(modifier);
         GlobalVariableHolder.timePaused = false;
     }
 
@@ -111,6 +247,7 @@ public class LevelUpAugment : MonoBehaviour
         {
             ResetCard(modifierCards[i], cardbacks[i], i);
         }
+        gameObject.SetActive(false);
     }
 
     void ResetCard(GameObject card, GameObject cardback, int index)
@@ -149,13 +286,14 @@ public class LevelUpAugment : MonoBehaviour
                 {
                     ApplyModifiers(modifier);
                     // Remove the modifier from the array
-                    //RemoveModifier(modifier);
+                    
                 }
                 else
                 {
                     ApplyPowerup(modifier);
+                    RemoveModifier(modifier);
                 }
-                AddToCurrentCards(modifier);
+                
                 break;
             }
         }
@@ -224,6 +362,8 @@ public class LevelUpAugment : MonoBehaviour
                 // Update the TextMeshPro component in the child of the card
                 TextMeshProUGUI textComponent = currentCardHolder[currentIndex].transform.Find("Multiplier").GetComponent<TextMeshProUGUI>();
                 textComponent.text =  "x" + currentIndex;
+                TextMeshProUGUI attributeNameText = listOfCards[currentIndex].transform.Find("Title").GetComponent<TextMeshProUGUI>();
+                attributeNameText.text = modifier.attributeName;
             }
         }
         else
