@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class QuitGame : MonoBehaviour
 {
     public GameObject exitCheck;
+    public GameObject cardList;
     void Update()
     {
         // Check for the Escape key (KeyCode.Escape), not Getkeycode(escape)
@@ -25,6 +26,7 @@ public class QuitGame : MonoBehaviour
         }
         else
         {
+            cardList.SetActive(false);
             // Unpause time
             Time.timeScale = 1f;
         }

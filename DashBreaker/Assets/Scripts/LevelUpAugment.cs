@@ -8,6 +8,11 @@ public class LevelUpAugment : MonoBehaviour
 {
     public Modifiers[] modifiers;
     public GameObject[] modifierCards;
+    public GameObject[] currentCardHolder;
+    public GameObject listHolder;
+    public GameObject[] listOfCards;
+    public Modifiers[] selectedModifiers; // Array to hold the selected modifiers
+    private int currentIndex = 0;
     public PlayerController player;
     public PlayerMovement playerMove;
     public float currentExpMultiplier;
@@ -30,6 +35,22 @@ public class LevelUpAugment : MonoBehaviour
         public float expMultiplier;
         public bool isAbility;
         public int AbilityId;
+    }
+
+    void Start()
+    {
+        // Get the transform component of the parentGameObject
+        Transform listHolderTransform = listHolder.transform;
+
+        // Initialize the listOfCards array with the number of children
+        listOfCards = new GameObject[listHolderTransform.childCount];
+
+        // Populate the listOfCards array with the children of parentGameObject
+        for (int i = 0; i < listHolderTransform.childCount; i++)
+        {
+            // Store each child in the listOfCards array
+            listOfCards[i] = listHolderTransform.GetChild(i).gameObject;
+        }
     }
 
     void ApplyModifiers(Modifiers modifiers)
@@ -134,10 +155,81 @@ public class LevelUpAugment : MonoBehaviour
                 {
                     ApplyPowerup(modifier);
                 }
+                AddToCurrentCards(modifier);
                 break;
             }
         }
         
+    }
+
+    public void AddToCurrentCards(Modifiers modifier)
+    {
+        // Ensure there are available slots in the selectedModifiers array
+        if (currentIndex >= 0 && currentIndex < selectedModifiers.Length)
+        {
+            // Check if the modifier is already selected
+            bool isNewModifier = true;
+            foreach (Modifiers selectedModifier in selectedModifiers)
+            {
+                if (selectedModifier == modifier)
+                {
+                    isNewModifier = false;
+                    break;
+                }
+            }
+
+            // If it's a new modifier, add it to the selectedModifiers array
+            if (isNewModifier)
+            {
+                currentCardHolder[currentIndex].SetActive(true);
+                // Add the modifier to the selectedModifiers array
+                selectedModifiers[currentIndex] = modifier;
+
+                // Update the TextMeshPro component in the child of the card
+                TextMeshProUGUI textComponent = currentCardHolder[currentIndex].transform.Find("Multiplier").GetComponent<TextMeshProUGUI>();
+                textComponent.text =  "x1";
+
+                // Get the Image component of the child of the specified child index
+                Transform cardHolderTransform = currentCardHolder[currentIndex].transform;
+                Image imageComponent = null;
+
+                // Iterate through the children of the current card holder object
+                foreach (Transform child in cardHolderTransform)
+                {
+                    // Attempt to get the Image component from the child
+                    imageComponent = child.GetComponent<Image>();
+
+                    // If an Image component is found, break the loop
+                    if (imageComponent != null)
+                    {
+                        imageComponent.sprite = modifier.accompanyingSprite;
+                        break;
+                    }
+                }
+                listOfCards[currentIndex].SetActive(true);
+                TextMeshProUGUI attributeNameText = listOfCards[currentIndex].transform.Find("Title").GetComponent<TextMeshProUGUI>();
+                attributeNameText.text = modifier.attributeName;
+
+                // Set the description text
+                TextMeshProUGUI descriptionText = listOfCards[currentIndex].transform.Find("Description").GetComponent<TextMeshProUGUI>();
+                descriptionText.text = modifier.description;
+
+                // Set the context image sprite
+                Image contextImage = listOfCards[currentIndex].transform.Find("ContextImage").GetComponent<Image>();
+                contextImage.sprite = modifier.accompanyingSprite;
+                currentIndex++;
+            }
+            else
+            {
+                // Update the TextMeshPro component in the child of the card
+                TextMeshProUGUI textComponent = currentCardHolder[currentIndex].transform.Find("Multiplier").GetComponent<TextMeshProUGUI>();
+                textComponent.text =  "x" + currentIndex;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No available slots in the selectedModifiers array.");
+        }
     }
 
     void RemoveModifier(Modifiers modifierToRemove)
