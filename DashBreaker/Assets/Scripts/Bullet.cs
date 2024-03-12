@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public Rigidbody2D rb;
     public Vector2 hold;
+    public Vector2 hold2;
     public int moveSpeed;
     public int expiry;
     public int damageAmount;
@@ -16,6 +17,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -24,7 +26,8 @@ public class Bullet : MonoBehaviour
     {
         if (check == false)
         {
-            hold = player.position;
+            hold = player.transform.position;
+            hold2 = transform.position;
             check = true;
         }
         FireAtPlayer();
