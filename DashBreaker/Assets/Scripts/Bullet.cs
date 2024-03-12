@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public Rigidbody2D rb;
     public Vector2 hold;
     public int moveSpeed;
@@ -22,11 +22,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (check == false)
-        {
-            hold = player.position;
-            check = true;
-        }
         FireAtPlayer();
     }
 
@@ -42,7 +37,6 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(expiry);
         gameObject.SetActive(false);
-        check = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)

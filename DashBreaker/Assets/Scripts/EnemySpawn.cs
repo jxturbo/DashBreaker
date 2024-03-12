@@ -37,7 +37,6 @@ public class EnemySpawn : MonoBehaviour
             randomNumber = Random.Range(0, spawnList.Count);
             randomType = Random.Range(0, 2);
             spawner = spawnList[randomNumber];
-            Instantiate(spawner);
             Instantiate(enemy, spawner.transform.position, spawner.transform.rotation);
             enemy.GetComponent<EnemyBehaviour>().enemyType = randomType;
             enemy.SetActive(true);
