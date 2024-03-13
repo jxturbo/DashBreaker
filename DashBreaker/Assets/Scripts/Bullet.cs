@@ -7,8 +7,6 @@ public class Bullet : MonoBehaviour
 {
     public GameObject player;
     public Rigidbody2D rb;
-    public Vector2 hold;
-    public Vector2 hold2;
     public int moveSpeed;
     public int expiry;
     public int damageAmount;
@@ -26,18 +24,16 @@ public class Bullet : MonoBehaviour
     {
         if (check == false)
         {
-            hold = player.transform.position;
-            hold2 = transform.position;
             check = true;
+            FireAtPlayer();
         }
-        FireAtPlayer();
     }
 
     void FireAtPlayer()
     {
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
-        rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed); 
+        rb.AddForce(direction * rb.mass * moveSpeed, ForceMode2D.Impulse);
         StartCoroutine(MissedBullet());
     }
 

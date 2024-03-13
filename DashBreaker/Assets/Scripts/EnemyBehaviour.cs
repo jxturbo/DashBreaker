@@ -57,8 +57,9 @@ public class EnemyBehaviour : MonoBehaviour
         GameObject bullet = ObjectPool.objPool.GetPooledObject();
         if (bullet != null)
         {
+            Debug.Log(transform.position);
             bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
+            Debug.Log(bullet.transform.position + " bullet");
             bullet.SetActive(true);
         }
         yield return new WaitForSeconds(cooldown);

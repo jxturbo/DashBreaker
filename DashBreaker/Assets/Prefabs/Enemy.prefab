@@ -103,7 +103,7 @@ MonoBehaviour:
   player: {fileID: 0}
   rb: {fileID: 0}
   distance: 3
-  moveSpeed: 1
+  moveSpeed: 2
   cooldown: 2
   damageAmount: 1
   enemyType: 1
@@ -158,6 +158,8 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   isEnemy: 1
+  PlayerAnim: {fileID: 0}
+  Trail: {fileID: 0}
   ExperiencePoints: 50
 --- !u!50 &5924108362685582915
 Rigidbody2D:

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 750286011823154764}
   - component: {fileID: 1364604738903427938}
   - component: {fileID: 8602412763550837746}
-  - component: {fileID: -5692560877854669817}
-  m_Layer: 0
+  - component: {fileID: -4065922939444215744}
+  m_Layer: 6
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7814523161389624968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.90991354, y: 0.76129633, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   rb: {fileID: 0}
-  hold: {x: 0, y: 0}
   moveSpeed: 2
   expiry: 3
   damageAmount: 1
@@ -141,7 +140,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.75
---- !u!50 &-5692560877854669817
+--- !u!50 &-4065922939444215744
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
