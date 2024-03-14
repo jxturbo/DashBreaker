@@ -5531,7 +5531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5414573ec233b8e43b4ad2544a2fc630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 6
+  maxHealth: 99999
   currentHealth: 0
   isEnemy: 0
   PlayerAnim: {fileID: 417060285}

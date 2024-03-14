@@ -40,10 +40,23 @@ public class Health : MonoBehaviour, IDamageable
                 PlayerController playerCtrl = player.GetComponent<PlayerController>();
                 playerCtrl.GainExp(ExperiencePoints);
                 playerCtrl.killcount++;
-                // Destroy the GameObject if health is zero or below
-                Destroy(gameObject);
+
+                // Find the animator component in the child GameObject
+                Animator childAnimator = GetComponentInChildren<Animator>();
+                if (childAnimator != null)
+                {
+                    // Set the "Death" trigger in the child animator
+                    childAnimator.SetTrigger("Death");
+
+                    // Wait for the animation to finish before destroying the GameObject
+                    StartCoroutine(WaitForAnimationFinish(childAnimator));
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
-            else
+            else if(!isEnemy)
             {
                 PlayerController playerCtrl = player.GetComponent<PlayerController>();
                 PlayerMovement playerMove = player.GetComponent<PlayerMovement>();
@@ -54,5 +67,14 @@ public class Health : MonoBehaviour, IDamageable
                 Trail.SetActive(false);
             }
         }
+    }
+
+    IEnumerator WaitForAnimationFinish(Animator animator)
+    {
+        // Wait for the end of the current animation
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        // Destroy the GameObject after the animation finishes
+        Destroy(gameObject);
     }
 }

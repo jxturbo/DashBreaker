@@ -70,145 +70,153 @@ public class LevelUpAugment : MonoBehaviour
         {
             player.moveSpeed += modifiers.moveSpeedMultiplier * player.baseMoveSpeed;
             playerMove.currentSpeed += modifiers.moveSpeedMultiplier * playerMove.currentSpeed;
-            if(isNewModifier)
+            if(isNewModifier && !modifiers.isAbility)
             {
                 modifiers.moveSpeedMultiplier = modifiers.moveSpeedMultiplier * 0.2f;
             }
-
         }
+
         if (modifiers.damageAmountIncrease != 0f)
         {
             player.damageAmount += modifiers.damageAmountIncrease;
-            if(isNewModifier)
+            if(isNewModifier && !modifiers.isAbility)
             {
                 modifiers.damageAmountIncrease = modifiers.damageAmountIncrease * 0.2f;
             }
         }   
+
         if (modifiers.maxDistanceMultiplier != 0f)
         {
             player.maxDistance += modifiers.maxDistanceMultiplier * player.baseMaxDistance;
-            if(isNewModifier)
+            if(isNewModifier && !modifiers.isAbility)
             {
-            modifiers.maxDistanceMultiplier = modifiers.maxDistanceMultiplier * 0.2f;
+                modifiers.maxDistanceMultiplier = modifiers.maxDistanceMultiplier * 0.2f;
             }
         }
+
         if (modifiers.cooldownMultiplier != 0f)
         {
             player.cooldown += modifiers.cooldownMultiplier * player.baseCooldown;
-            if(isNewModifier)
+            if(isNewModifier && !modifiers.isAbility)
             {
                 modifiers.cooldownMultiplier = modifiers.cooldownMultiplier * 0.2f;
             }
         }
+
         if (modifiers.expMultiplier != 0f)
         {
             player.currentExpMultiplier += modifiers.expMultiplier * player.currentExpMultiplier;
-            if(isNewModifier)
+            if(isNewModifier && !modifiers.isAbility)
             {
                 modifiers.expMultiplier = modifiers.expMultiplier * 0.2f;
             }
         }
+
         if(!modifiers.isAbility)
         {
             ResetAllCards();
             AddToCurrentCards(modifiers);
         }
-        // Access the attributeName of the modifier
-        string currentAttributeName = modifiers.attributeName;
-
-        // Split the attributeName to separate the number part
-        string[] parts = currentAttributeName.Split(' ');
-
-        // Initialize the number to 0 if there is no number or parsing fails
-        float number = 0;
-        if (parts.Length > 1)
+        if(!modifiers.isAbility)
         {
-            // Try to parse the number part
-            if (!float.TryParse(parts[1], out number))
+            // Access the attributeName of the modifier
+            string currentAttributeName = modifiers.attributeName;
+
+            // Split the attributeName to separate the number part
+            string[] parts = currentAttributeName.Split(' ');
+
+            // Initialize the number to 0 if there is no number or parsing fails
+            float number = 0;
+            if (parts.Length > 1)
             {
-                Debug.LogWarning("Failed to parse the number in attributeName: " + currentAttributeName);
-                number = 0; // Set number to 0 if parsing fails
+                // Try to parse the number part
+                if (!float.TryParse(parts[1], out number))
+                {
+                    Debug.LogWarning("Failed to parse the number in attributeName: " + currentAttributeName);
+                    number = 0; // Set number to 0 if parsing fails
+                }
             }
+
+            // Increment the number by 1
+            number++;
+            // Update the attributeName with the incremented number
+            if (number >= 1)
+            {
+                // Add the current bonus modifier to the description if the number is 1
+                if (modifiers.moveSpeedMultiplier != 0f)
+                {
+                    string moveSpeedMultiplierString = " (Spd: + " + (modifiers.moveSpeedMultiplier * number).ToString() + ")";
+                    if (modifiers.description.Contains("Spd: +"))
+                    {
+                        // Replace existing Move Speed multiplier with the current one
+                        modifiers.description = Regex.Replace(modifiers.description, @"\(Spd: + \d+(?:\.\d+)?\)", moveSpeedMultiplierString);
+                    }
+                    else
+                    {
+                        modifiers.description += moveSpeedMultiplierString;
+                    }
+                }
+
+                if (modifiers.damageAmountIncrease != 0f)
+                {
+                    string damageAmountIncreaseString = " (Dmg: + " + (modifiers.damageAmountIncrease * number).ToString() + ")";
+                    if (modifiers.description.Contains("Dmg: +"))
+                    {
+                        // Replace existing Damage Increase multiplier with the current one
+                        modifiers.description = Regex.Replace(modifiers.description, @"\(Dmg: + \d+(?:\.\d+)?\)", damageAmountIncreaseString);
+                    }
+                    else
+                    {
+                        modifiers.description += damageAmountIncreaseString;
+                    }
+                }
+
+                if (modifiers.maxDistanceMultiplier != 0f)
+                {
+                    string maxDistanceMultiplierString = " (Max Distance: + " + (modifiers.maxDistanceMultiplier * number).ToString() + ")";
+                    if (modifiers.description.Contains("Max Distance: +"))
+                    {
+                        // Replace existing Max Distance multiplier with the current one
+                        modifiers.description = Regex.Replace(modifiers.description, @"\(Max Distance: + \d+(?:\.\d+)?\)", maxDistanceMultiplierString);
+                    }
+                    else
+                    {
+                        modifiers.description += maxDistanceMultiplierString;
+                    }
+                }
+
+                if (modifiers.cooldownMultiplier != 0f)
+                {
+                    string cooldownMultiplierString = " (CD: + " + (modifiers.cooldownMultiplier * number).ToString() + ")";
+                    if (modifiers.description.Contains("CD: +"))
+                    {
+                        // Replace existing Cooldown multiplier with the current one
+                        modifiers.description = Regex.Replace(modifiers.description, @"\(CD: + \d+(?:\.\d+)?\)", cooldownMultiplierString);
+                    }
+                    else
+                    {
+                        modifiers.description += cooldownMultiplierString;
+                    }
+                }
+
+                if (modifiers.expMultiplier != 0f)
+                {
+                    string expMultiplierString = " (Exp: + " + (modifiers.expMultiplier * number).ToString() + ")";
+                    if (modifiers.description.Contains("Exp: +"))
+                    {
+                        // Replace existing Exp Multiplier with the current one
+                        modifiers.description = Regex.Replace(modifiers.description, @"\(Exp: + \d+(?:\.\d+)?\)", expMultiplierString);
+                    }
+                    else
+                    {
+                        modifiers.description += expMultiplierString;
+                    }
+                }
+            }
+            // Update the attributeName with the incremented number
+            modifiers.attributeName = parts[0] + " +" + number;
+
         }
-
-        // Increment the number by 1
-        number++;
-        // Update the attributeName with the incremented number
-        if (number >= 1)
-        {
-            // Add the current bonus modifier to the description if the number is 1
-            if (modifiers.moveSpeedMultiplier != 0f)
-            {
-                string moveSpeedMultiplierString = " (Spd: + " + (modifiers.moveSpeedMultiplier * number).ToString() + ")";
-                if (modifiers.description.Contains("Spd: +"))
-                {
-                    // Replace existing Move Speed multiplier with the current one
-                    modifiers.description = Regex.Replace(modifiers.description, @"\(Spd: + \d+(?:\.\d+)?\)", moveSpeedMultiplierString);
-                }
-                else
-                {
-                    modifiers.description += moveSpeedMultiplierString;
-                }
-            }
-
-            if (modifiers.damageAmountIncrease != 0f)
-            {
-                string damageAmountIncreaseString = " (Dmg: + " + (modifiers.damageAmountIncrease * number).ToString() + ")";
-                if (modifiers.description.Contains("Dmg: +"))
-                {
-                    // Replace existing Damage Increase multiplier with the current one
-                    modifiers.description = Regex.Replace(modifiers.description, @"\(Dmg: + \d+(?:\.\d+)?\)", damageAmountIncreaseString);
-                }
-                else
-                {
-                    modifiers.description += damageAmountIncreaseString;
-                }
-            }
-
-            if (modifiers.maxDistanceMultiplier != 0f)
-            {
-                string maxDistanceMultiplierString = " (Max Distance: + " + (modifiers.maxDistanceMultiplier * number).ToString() + ")";
-                if (modifiers.description.Contains("Max Distance: +"))
-                {
-                    // Replace existing Max Distance multiplier with the current one
-                    modifiers.description = Regex.Replace(modifiers.description, @"\(Max Distance: + \d+(?:\.\d+)?\)", maxDistanceMultiplierString);
-                }
-                else
-                {
-                    modifiers.description += maxDistanceMultiplierString;
-                }
-            }
-
-            if (modifiers.cooldownMultiplier != 0f)
-            {
-                string cooldownMultiplierString = " (CD: + " + (modifiers.cooldownMultiplier * number).ToString() + ")";
-                if (modifiers.description.Contains("CD: +"))
-                {
-                    // Replace existing Cooldown multiplier with the current one
-                    modifiers.description = Regex.Replace(modifiers.description, @"\(CD: + \d+(?:\.\d+)?\)", cooldownMultiplierString);
-                }
-                else
-                {
-                    modifiers.description += cooldownMultiplierString;
-                }
-            }
-
-            if (modifiers.expMultiplier != 0f)
-            {
-                string expMultiplierString = " (Exp: + " + (modifiers.expMultiplier * number).ToString() + ")";
-                if (modifiers.description.Contains("Exp: +"))
-                {
-                    // Replace existing Exp Multiplier with the current one
-                    modifiers.description = Regex.Replace(modifiers.description, @"\(Exp: + \d+(?:\.\d+)?\)", expMultiplierString);
-                }
-                else
-                {
-                    modifiers.description += expMultiplierString;
-                }
-            }
-        }
-        // Update the attributeName with the incremented number
-        modifiers.attributeName = parts[0] + " +" + number;
 
         GlobalVariableHolder.timePaused = false;
     }
