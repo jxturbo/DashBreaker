@@ -142,14 +142,14 @@ public class LevelUpAugment : MonoBehaviour
             // Update the attributeName with the incremented number
             if (number >= 1)
             {
-                // Add the current bonus modifier to the description if the number is 1
                 if (modifiers.moveSpeedMultiplier != 0f)
                 {
-                    string moveSpeedMultiplierString = " (Spd: + " + (modifiers.moveSpeedMultiplier * number).ToString() + ")";
+                    float moveSpeedMultiplierPercent = modifiers.moveSpeedMultiplier * 100f * number;
+                    string moveSpeedMultiplierString = $" (Spd: + {moveSpeedMultiplierPercent.ToString("F1")}% )";
                     if (modifiers.description.Contains("Spd: +"))
                     {
                         // Replace existing Move Speed multiplier with the current one
-                        modifiers.description = Regex.Replace(modifiers.description, @"\(Spd: + \d+(?:\.\d+)?\)", moveSpeedMultiplierString);
+                        modifiers.description = Regex.Replace(modifiers.description, @"\b\(Spd: \+ \d+(?:\.\d+)?%?\)", moveSpeedMultiplierString);
                     }
                     else
                     {
@@ -159,11 +159,12 @@ public class LevelUpAugment : MonoBehaviour
 
                 if (modifiers.damageAmountIncrease != 0f)
                 {
-                    string damageAmountIncreaseString = " (Dmg: + " + (modifiers.damageAmountIncrease * number).ToString() + ")";
+                    float damageAmountIncreasePercent = modifiers.damageAmountIncrease * 100f * number;
+                    string damageAmountIncreaseString = $" (Dmg: + {damageAmountIncreasePercent.ToString("F1")}% )";
                     if (modifiers.description.Contains("Dmg: +"))
                     {
                         // Replace existing Damage Increase multiplier with the current one
-                        modifiers.description = Regex.Replace(modifiers.description, @"\(Dmg: + \d+(?:\.\d+)?\)", damageAmountIncreaseString);
+                        modifiers.description = Regex.Replace(modifiers.description, @"\b\(Dmg: \+ \d+(?:\.\d+)?%?\)", damageAmountIncreaseString);
                     }
                     else
                     {
@@ -173,11 +174,12 @@ public class LevelUpAugment : MonoBehaviour
 
                 if (modifiers.maxDistanceMultiplier != 0f)
                 {
-                    string maxDistanceMultiplierString = " (Max Distance: + " + (modifiers.maxDistanceMultiplier * number).ToString() + ")";
+                    float maxDistanceMultiplierPercent = modifiers.maxDistanceMultiplier * 100f * number;
+                    string maxDistanceMultiplierString = $" (Max Distance: + {maxDistanceMultiplierPercent.ToString("F1")}% )";
                     if (modifiers.description.Contains("Max Distance: +"))
                     {
                         // Replace existing Max Distance multiplier with the current one
-                        modifiers.description = Regex.Replace(modifiers.description, @"\(Max Distance: + \d+(?:\.\d+)?\)", maxDistanceMultiplierString);
+                        modifiers.description = Regex.Replace(modifiers.description, @"\b\(Max Distance: \+ \d+(?:\.\d+)?%?\)", maxDistanceMultiplierString);
                     }
                     else
                     {
@@ -187,11 +189,12 @@ public class LevelUpAugment : MonoBehaviour
 
                 if (modifiers.cooldownMultiplier != 0f)
                 {
-                    string cooldownMultiplierString = " (CD: + " + (modifiers.cooldownMultiplier * number).ToString() + ")";
+                    float cooldownMultiplierPercent = modifiers.cooldownMultiplier * 100f * number;
+                    string cooldownMultiplierString = $" (CD: + {cooldownMultiplierPercent.ToString("F1")}% )";
                     if (modifiers.description.Contains("CD: +"))
                     {
                         // Replace existing Cooldown multiplier with the current one
-                        modifiers.description = Regex.Replace(modifiers.description, @"\(CD: + \d+(?:\.\d+)?\)", cooldownMultiplierString);
+                        modifiers.description = Regex.Replace(modifiers.description, @"\b\(CD: \+ \d+(?:\.\d+)?%?\)", cooldownMultiplierString);
                     }
                     else
                     {
@@ -201,11 +204,12 @@ public class LevelUpAugment : MonoBehaviour
 
                 if (modifiers.expMultiplier != 0f)
                 {
-                    string expMultiplierString = " (Exp: + " + (modifiers.expMultiplier * number).ToString() + ")";
+                    float expMultiplierPercent = modifiers.expMultiplier * 100f * number;
+                    string expMultiplierString = $" (Exp: + {expMultiplierPercent.ToString("F1")}% )";
                     if (modifiers.description.Contains("Exp: +"))
                     {
                         // Replace existing Exp Multiplier with the current one
-                        modifiers.description = Regex.Replace(modifiers.description, @"\(Exp: + \d+(?:\.\d+)?\)", expMultiplierString);
+                        modifiers.description = Regex.Replace(modifiers.description, @"\b\(Exp: \+ \d+(?:\.\d+)?%?\)", expMultiplierString);
                     }
                     else
                     {
