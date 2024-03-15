@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic; 
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource SFX;
     public GameObject marker;
     public GameObject markerHolder;
+    public GameObject damageTextPrefab; 
+    public GameObject damageTextHolder;
 
     [Header("Exp ")]
     public float currentExp = 0f;
@@ -279,7 +282,16 @@ public class PlayerController : MonoBehaviour
                         playerHp.currentHealth = playerHp.maxHealth;
                     }
                 }
+                GameObject damageTextObject = Instantiate(damageTextPrefab, hit.point, Quaternion.identity);
+                damageTextObject.transform.SetParent(damageTextHolder.transform, false);
+                TextMeshPro damageTextMesh = damageTextObject.GetComponent<TextMeshPro>();
+                if (damageTextMesh != null)
+                {
+                    damageTextMesh.text = Mathf.Round((damageAmount * 10f) / 10f).ToString(); // Rounds damage amount to 1 decimal place
+                }
             }
+
+    
         }
         if(hits.Length > 0 && PerfectionistActive && perfectionistStacks <= 10f)
         {
