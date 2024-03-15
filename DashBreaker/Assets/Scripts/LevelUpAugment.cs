@@ -159,18 +159,18 @@ public class LevelUpAugment : MonoBehaviour
 
                 if (modifiers.damageAmountIncrease != 0f)
                 {
-                    float damageAmountIncreasePercent = modifiers.damageAmountIncrease * 100f * number;
-                    string damageAmountIncreaseString = $" (Dmg: + {damageAmountIncreasePercent.ToString("F1")}% )";
+                    string damageAmountIncreaseString = " (Dmg: + " + (modifiers.damageAmountIncrease * number).ToString() + ")";
                     if (modifiers.description.Contains("Dmg: +"))
                     {
                         // Replace existing Damage Increase multiplier with the current one
-                        modifiers.description = Regex.Replace(modifiers.description, @"\b\(Dmg: \+ \d+(?:\.\d+)?%?\)", damageAmountIncreaseString);
+                        modifiers.description = Regex.Replace(modifiers.description, @"\(Dmg: + \d+(?:\.\d+)?\)", damageAmountIncreaseString);
                     }
                     else
                     {
                         modifiers.description += damageAmountIncreaseString;
                     }
                 }
+
 
                 if (modifiers.maxDistanceMultiplier != 0f)
                 {
