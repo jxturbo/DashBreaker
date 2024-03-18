@@ -16,6 +16,8 @@ public class EnemyBehaviour : MonoBehaviour
     public int damageAmount;
     public int enemyType;
     public bool check = true;
+    public int attackNumber;
+    public int attackType;
 
 
 
@@ -48,6 +50,10 @@ public class EnemyBehaviour : MonoBehaviour
                 case 1:
                     StartCoroutine(RushAttack());
                     break;
+                case 2:
+                    attackNumber = Random.Range(2, 4);
+                    StartCoroutine(BossAttacking(attackNumber));
+                    break;
             }
         }
     }
@@ -71,6 +77,45 @@ public class EnemyBehaviour : MonoBehaviour
         MoveToPlayer();
         yield return new WaitForSeconds(cooldown);
         moveSpeed -= 2;
+        check = true;
+    }
+
+    IEnumerator ShootAttackBoss()
+    {
+        GameObject bullet = ObjectPool.objPool.GetPooledObject();
+        if (bullet != null)
+        {
+            Debug.Log(transform.position);
+            bullet.transform.position = transform.position;
+            Debug.Log(bullet.transform.position + " bullet");
+            bullet.SetActive(true);
+        }
+        yield return new WaitForSeconds(cooldown);
+    }
+    IEnumerator RushAttackBoss()
+    {
+        moveSpeed += 3;
+        MoveToPlayer();
+        yield return new WaitForSeconds(cooldown);
+        moveSpeed -= 3;
+    }
+
+    IEnumerator BossAttacking(int attackNumber)
+    {
+        for (int i = 0; i < attackNumber; i++)
+        {
+            attackType = Random.Range(0, 2);
+            switch (attackType)
+            {
+                case 0:
+                    StartCoroutine(ShootAttackBoss());
+                    break;
+                case 1:
+                    StartCoroutine(RushAttackBoss());
+                    break;
+            }
+        }
+        yield return new WaitForSeconds(cooldown);
         check = true;
     }
 

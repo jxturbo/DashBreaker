@@ -43,7 +43,10 @@ public class FieldActive : MonoBehaviour
         {
             foreach (GameObject childObject in childObjects)
             {
-                childObject.SetActive(false);
+                if (childObject.tag != "Sprite")
+                {
+                    childObject.SetActive(false);
+                }
             }
         }
     }
