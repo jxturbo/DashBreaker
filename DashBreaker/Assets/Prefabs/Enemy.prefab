@@ -109,6 +109,8 @@ MonoBehaviour:
   damageAmount: 1
   enemyType: 1
   check: 1
+  attackNumber: 0
+  attackType: 0
 --- !u!58 &3982886028771549087
 CircleCollider2D:
   m_ObjectHideFlags: 0

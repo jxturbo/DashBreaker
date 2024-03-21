@@ -5,6 +5,8 @@ using UnityEngine;
 public class FieldActive : MonoBehaviour
 {
     public List<GameObject> childObjects;
+    public GameObject boss;
+    public bool check = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class FieldActive : MonoBehaviour
             GameObject childObject = childTransform.gameObject;
             childObjects.Add(childObject);
         }
+
 
     }
 
@@ -34,6 +37,16 @@ public class FieldActive : MonoBehaviour
             {
                 childObject.SetActive(true);
             }
+            if (boss != null)
+            {
+                boss.SetActive(true);
+            }
+        }
+        if (other.tag == "Boss" && check == false)
+        {
+            boss = other.gameObject;
+            boss.SetActive(false);
+            check = true;
         }
     }
 

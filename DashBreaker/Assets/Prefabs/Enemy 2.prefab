@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5924108362685582915}
   m_Layer: 3
   m_Name: Enemy 2
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   distance: 4
   moveSpeed: 2
-  cooldown: 2
-  damageAmount: 1
+  cooldown: 3
+  damageAmount: 2
   enemyType: 2
   check: 1
   attackNumber: 0

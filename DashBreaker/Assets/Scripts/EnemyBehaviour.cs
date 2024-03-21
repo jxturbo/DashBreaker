@@ -51,8 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
                     StartCoroutine(RushAttack());
                     break;
                 case 2:
-                    attackNumber = Random.Range(2, 4);
-                    StartCoroutine(BossAttacking(attackNumber));
+                    StartCoroutine(BossAttacking());
                     break;
             }
         }
@@ -90,30 +89,47 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log(bullet.transform.position + " bullet");
             bullet.SetActive(true);
         }
+        yield return new WaitForSeconds(1);
+        bullet = ObjectPool.objPool.GetPooledObject();
+        if (bullet != null)
+        {
+            Debug.Log(transform.position);
+            bullet.transform.position = transform.position;
+            Debug.Log(bullet.transform.position + " bullet");
+            bullet.SetActive(true);
+        }
+        yield return new WaitForSeconds(1);
+        bullet = ObjectPool.objPool.GetPooledObject();
+        if (bullet != null)
+        {
+            Debug.Log(transform.position);
+            bullet.transform.position = transform.position;
+            Debug.Log(bullet.transform.position + " bullet");
+            bullet.SetActive(true);
+        }
         yield return new WaitForSeconds(cooldown);
     }
     IEnumerator RushAttackBoss()
     {
         moveSpeed += 3;
         MoveToPlayer();
+        yield return new WaitForSeconds(1);
+        MoveToPlayer();
         yield return new WaitForSeconds(cooldown);
         moveSpeed -= 3;
     }
 
-    IEnumerator BossAttacking(int attackNumber)
+    IEnumerator BossAttacking()
     {
-        for (int i = 0; i < attackNumber; i++)
+        attackType = Random.Range(0, 2);
+        switch (attackType)
         {
-            attackType = Random.Range(0, 2);
-            switch (attackType)
-            {
-                case 0:
-                    StartCoroutine(ShootAttackBoss());
-                    break;
-                case 1:
-                    StartCoroutine(RushAttackBoss());
-                    break;
-            }
+            case 0:
+                StartCoroutine(ShootAttackBoss());
+                break;
+            case 1:
+                StartCoroutine(RushAttackBoss());
+                break;
         }
         yield return new WaitForSeconds(cooldown);
         check = true;

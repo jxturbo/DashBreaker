@@ -11,6 +11,7 @@ TagManager:
   - projectile
   - KillCount
   - Sprite
+  - Boss
   layers:
   - Default
   - TransparentFX
