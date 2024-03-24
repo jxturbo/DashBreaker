@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObjects: []
+  boss: {fileID: 0}
+  check: 0
 --- !u!1 &2034188603332702636
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +178,7 @@ MonoBehaviour:
   randomNumber: 0
   randomType: 0
   cooldown: 2
+  spawnCount: 0
   spawner: {fileID: 0}
   spawnList: []
   enemyList:
@@ -183,6 +186,8 @@ MonoBehaviour:
   - {fileID: 2313362289840511653, guid: a6dda6a4c3b439945813e4c853744221, type: 3}
   enemy: {fileID: 0}
   enemyBehaviour: {fileID: 0}
+  enemyDiff: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &3195582212018323938
 GameObject:
   m_ObjectHideFlags: 0

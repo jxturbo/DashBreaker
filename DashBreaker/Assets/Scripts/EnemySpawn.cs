@@ -9,11 +9,15 @@ public class EnemySpawn : MonoBehaviour
     public int randomNumber;
     public int randomType;
     public int cooldown;
+    public int spawnCount;
     public GameObject spawner;
     public List<GameObject> spawnList;
     public List<GameObject> enemyList;
     public GameObject enemy;
+    public GameObject enemyInstance;
     public EnemyBehaviour enemyBehaviour;
+    public EnemyDiff enemyDiff;
+    public GameObject gameController;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +43,11 @@ public class EnemySpawn : MonoBehaviour
             randomType = Random.Range(0, 1);
             spawner = spawnList[randomNumber];
             enemy = enemyList[randomType];
-            Instantiate(enemy, spawner.transform.position, spawner.transform.rotation);
-            enemy.SetActive(true);
+            enemyInstance = Instantiate(enemy, spawner.transform.position, spawner.transform.rotation);
+            gameController.GetComponent<EnemyDiff>().DifficultyIncrease(enemyInstance);
+            enemyInstance.SetActive(true);
             yield return new WaitForSeconds(cooldown);
         }
+        gameController.GetComponent<EnemyDiff>().SpawnCountIncrease();
     }
 }
