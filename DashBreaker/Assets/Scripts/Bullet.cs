@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject player;
+    public GameObject gameController;
     public Rigidbody2D rb;
     public int moveSpeed;
     public int expiry;
@@ -16,6 +17,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        gameController = GameObject.FindGameObjectWithTag("Controller");
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -58,6 +60,7 @@ public class Bullet : MonoBehaviour
                     damageable.TakeDamage(damageAmount);
                 }
                 gameObject.SetActive(false);
+                gameController.GetComponent<EnemyDiff>().BulletReset(this.GameObject());
                 check = false;
                 return;
             }

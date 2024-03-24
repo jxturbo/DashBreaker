@@ -12,6 +12,8 @@ TagManager:
   - KillCount
   - Sprite
   - Boss
+  - Bullet
+  - Controller
   layers:
   - Default
   - TransparentFX

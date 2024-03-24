@@ -13556,7 +13556,7 @@ GameObject:
   - component: {fileID: 1869049623}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13617,6 +13617,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnCount: 0
+  intialHp: 0
+  intialDmg: 0
+  first: 1
 --- !u!1 &1880296297
 GameObject:
   m_ObjectHideFlags: 0

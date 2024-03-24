@@ -6,7 +6,6 @@ public class EnemyDiff : MonoBehaviour
 {
 
     public int spawnCount;
-    public float intialHp;
     public int intialDmg;
     public bool first = true;
     // Start is called before the first frame update
@@ -23,20 +22,37 @@ public class EnemyDiff : MonoBehaviour
 
     public GameObject DifficultyIncrease(GameObject enemy)
     {
-        if (first == true)
+ 
+        if (enemy.tag == "Bullet")
         {
-            intialDmg = enemy.GetComponent<EnemyBehaviour>().damageAmount;
-            intialHp = enemy.GetComponent<Health>().maxHealth;
+            if (first == true)
+            {
+                intialDmg = enemy.GetComponent<Bullet>().damageAmount;
+            }
+            for (int i = 0; i < spawnCount; i++)
+            {
+                enemy.GetComponent<Bullet>().damageAmount++;
+            }
         }
-        for (int i = 0; i < spawnCount; i++)
+        else if (enemy.tag == "Enemy")
         {
-            enemy.GetComponent<EnemyBehaviour>().damageAmount++;
-            enemy.GetComponent<Health>().maxHealth++;
+            for (int i = 0; i < spawnCount; i++)
+            {
+                enemy.GetComponent<EnemyBehaviour>().damageAmount++;
+                enemy.GetComponent<Health>().maxHealth++;
+            }
         }
+
         return enemy;
     }
     public void SpawnCountIncrease()
     {
         spawnCount++;
+    }
+
+    public GameObject BulletReset(GameObject bullet)
+    {
+        bullet.GetComponent<Bullet>().damageAmount = intialDmg;
+        return (bullet);
     }
 }

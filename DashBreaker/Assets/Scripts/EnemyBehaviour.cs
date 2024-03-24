@@ -9,6 +9,7 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject player;
+    public GameObject gameController;
     public Rigidbody2D rb;
     public int distance;
     public int moveSpeed;
@@ -24,6 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        gameController = GameObject.FindGameObjectWithTag("Controller");
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -64,6 +66,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Debug.Log(transform.position);
             bullet.transform.position = transform.position;
+            gameController.GetComponent<EnemyDiff>().DifficultyIncrease(bullet);
             Debug.Log(bullet.transform.position + " bullet");
             bullet.SetActive(true);
         }
