@@ -40,7 +40,7 @@ public class EnemySpawn : MonoBehaviour
         {
             cooldown = Random.Range(0, 3);
             randomNumber = Random.Range(0, spawnList.Count);
-            randomType = Random.Range(0, 1);
+            randomType = Random.Range(0, 1);//Change to 0, 2 to spawn gunners.
             spawner = spawnList[randomNumber];
             enemy = enemyList[randomType];
             enemyInstance = Instantiate(enemy, spawner.transform.position, spawner.transform.rotation);
