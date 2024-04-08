@@ -32,7 +32,15 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HeadToPlayer();
+        if(!GlobalVariableHolder.timePaused)
+        {
+            HeadToPlayer();
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f, 0f);
+        }
+        
     }
 
     void HeadToPlayer()
